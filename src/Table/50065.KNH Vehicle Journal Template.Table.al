@@ -1,0 +1,125 @@
+/// <summary>
+/// Table Vehicle Journal Template (ID 50065).
+/// </summary>
+table 50065 "KNH Vehicle Journal Template"
+{
+    Caption = 'Vehicle Journal Template';
+    //LookupPageID = "KNH Journal Template List";
+    ReplicateData = true;
+
+    fields
+    {
+        field(1; Name; Code[10])
+        {
+            Caption = 'Name';
+            NotBlank = true;
+        }
+        field(2; Description; Text[80])
+        {
+            Caption = 'Description';
+        }
+        field(5; "Test Report ID"; Integer)
+        {
+            Caption = 'Test Report ID';
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Report));
+        }
+        field(7; "Posting Report ID"; Integer)
+        {
+            Caption = 'Posting Report ID';
+            TableRelation = AllObjWithCaption."Object ID" WHERE("Object Type" = CONST(Report));
+        }
+        field(8; "Force Posting Report"; Boolean)
+        {
+            Caption = 'Force Posting Report';
+        }
+        field(10; "Source Code"; Code[10])
+        {
+            Caption = 'Source Code';
+            TableRelation = "Source Code";
+
+            trigger OnValidate()
+            begin
+                VehicleJnlLine.SetRange("Journal Template Name", Name);
+                VehicleJnlLine.ModifyAll("Source Code", "Source Code");
+                Modify;
+            end;
+        }
+        field(11; "Reason Code"; Code[10])
+        {
+            Caption = 'Reason Code';
+            TableRelation = "Reason Code";
+        }
+        field(15; "Test Report Caption"; Text[250])
+        {
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" WHERE("Object Type" = CONST(Report), "Object ID" = FIELD("Test Report ID")));
+            Caption = 'Test Report Caption';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(17; "Posting Report Caption"; Text[250])
+        {
+            CalcFormula = Lookup(AllObjWithCaption."Object Caption" WHERE("Object Type" = CONST(Report), "Object ID" = FIELD("Posting Report ID")));
+            Caption = 'Posting Report Caption';
+            Editable = false;
+            FieldClass = FlowField;
+        }
+        field(19; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            TableRelation = "No. Series";
+
+            trigger OnValidate()
+            begin
+                if "No. Series" <> '' then begin
+                    if "No. Series" = "Posting No. Series" then
+                        "Posting No. Series" := '';
+                end;
+            end;
+        }
+        field(20; "Posting No. Series"; Code[20])
+        {
+            Caption = 'Posting No. Series';
+            TableRelation = "No. Series";
+
+            trigger OnValidate()
+            begin
+                if ("Posting No. Series" = "No. Series") and ("Posting No. Series" <> '') then
+                    FieldError("Posting No. Series", StrSubstNo(PostTxt, "Posting No. Series"));
+            end;
+        }
+        field(30; "Increment Batch Name"; Boolean)
+        {
+            Caption = 'Increment Batch Name';
+        }
+    }
+
+    keys
+    {
+        key(Key1; Name)
+        {
+            Clustered = true;
+        }
+    }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; Name, Description)
+        {
+        }
+    }
+
+    trigger OnDelete()
+    begin
+        VehicleJnlLine.SetRange("Journal Template Name", Name);
+        VehicleJnlLine.DeleteAll(true);
+        VehicleJnlBatch.SetRange("Journal Template Name", Name);
+        VehicleJnlBatch.DeleteAll();
+    end;
+
+    var
+        PostTxt: Label 'must not be %1';
+        VehicleJnlBatch: Record "KNH Vehicle Journal Batch";
+        VehicleJnlLine: Record "KNH Vehicle Journal Line";
+        SourceCodeSetup: Record "Source Code Setup";
+        ReservEngineMgt: Codeunit "Reservation Engine Mgt.";
+}

@@ -1,0 +1,28 @@
+{
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${PerTenantExtensionCop}",
+        "${UICop}"
+    ],
+    "[al]": {
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.formatOnSave": true
+    },
+    "al.ruleSetPath": "./.vscode/ruleset.json",
+    "al.backgroundCodeAnalysis": false,
+    "al.enableCodeActions": false,
+    "al.incrementalBuild": true,
+    "al.compilationOptions": 
+    {
+        "generateReportLayout": true
+    },
+    "editor.codeLens": false,
+
+    "CRS.DisableDefaultAlSnippets": false,
+    "CRS.OnSaveAlFileAction": "Rename",
+    "CRS.FileNamePattern": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
+}

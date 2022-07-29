@@ -1,0 +1,90 @@
+{
+    "Name": "Hide the below warnings",
+    "rules": [
+        {
+            "id": "AA0005",
+            "action": "hidden",
+            "desciption": "Warning to not use Begin..End to enclose simple statements"
+        },
+        {
+            "id": "AA0008",
+            "action": "hidden",
+            "desciption": "Warning that parenthesis should be added after function calls"
+        },
+        {
+            "id": "AA0021",
+            "action": "hidden",
+            "desciption": "Warning of variable declaration order"
+        },
+        {
+            "id": "AA0074",
+            "action": "hidden",
+            "desciption": "Warning that text constants should have specific suffixes"
+        },
+        {
+            "id": "AA0137",
+            "action": "hidden",
+            "desciption": "Warning of unused variable"
+        },
+        {
+            "id": "AA0139",
+            "action": "hidden",
+            "desciption": "Warning of possible text overflow error"
+        },
+        {
+            "id": "AA0175",
+            "action": "hidden",
+            "desciption": "Warning that a record is being retrieved but not used"
+        },
+        {
+            "id": "AA0204",
+            "action": "hidden",
+            "desciption": "Warning that a global variable has the same name as another field, method or action in the same scope"
+        },
+        {
+            "id": "AW0006",
+            "action": "hidden",
+            "desciption": "Warning that pages and reports need the UsageArea property to be searchable"
+        },
+        {
+            "id": "AA0100",
+            "action": "hidden",
+            "desciption": "Warning about identifiers with quotes in the name"
+        },
+        {
+            "id": "AW0002",
+            "action": "hidden",
+            "desciption": "Wwarning that the web client does not support both actions and fields in cue groups"
+        },
+        {
+            "id": "AA0210",
+            "action": "hidden",
+            "Description": "Warning about Key fields"
+        },
+        {
+            "id": "AA0215",
+            "action": "hidden",
+            "Description": "Warning about ???"
+        },
+        {
+            "id": "AL0432",
+            "action": "hidden",
+            "desciption": "Warning that a method is marked for removal in a future release"
+        },
+        {
+            "id": "AL0667",
+            "action": "hidden",
+            "Description": "Warning about Key fields"
+        },
+        {
+            "id": "AL1025",
+            "action": "hidden",
+            "desciption": "Warning"
+        },
+        {
+            "id": "AW0005",
+            "action": "hidden",
+            "desciption": "Warning that an action exists without an image"
+        }
+    ]
+}
