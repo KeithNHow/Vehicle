@@ -127,5 +127,21 @@ page 50060 "KNH Vehicle Card"
                 ToolTip = 'View the history of transactions that have been posted for the selected record.';
             }
         }
+        area(Reporting)
+        {
+            group(Statistics)
+            {
+                action(Balances)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Balances';
+                    Image = Report;
+                    Promoted = true;
+                    PromotedCategory = Report;
+                    PromotedIsBig = true;
+
+                }
+            }
+        }
     }
 }
