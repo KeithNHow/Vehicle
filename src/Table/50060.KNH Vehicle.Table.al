@@ -37,6 +37,13 @@ table 50060 "KNH Vehicle"
         {
             Caption = 'Registration No.';
             DataClassification = CustomerContent;
+
+            trigger OnValidate()
+            begin
+                OnBeforeValidateRegistrationNo(Rec, xRec);
+                Testfield("Registration No.");
+                OnAfterValidateRegistrationNo(Rec, xRec);
+            end;
         }
         field(5; "Registration Date"; Date)
         {
@@ -243,4 +250,14 @@ table 50060 "KNH Vehicle"
         DimMgt: Codeunit DimensionManagement;
         VehicleSetup: Record "KNH Vehicle Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeValidateRegistrationNo(var Vehicle: Record "KNH Vehicle"; xVehicle: Record "KNH Vehicle")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterValidateRegistrationNo(var Vehicle: Record "KNH Vehicle"; xVehicle: Record "KNH Vehicle")
+    begin
+    end;
 }
