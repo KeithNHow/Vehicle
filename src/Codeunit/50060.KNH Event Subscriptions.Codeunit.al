@@ -4,7 +4,7 @@
 codeunit 50060 "KNH Event Subscriptions"
 {
     [Eventsubscriber(ObjectType::Table, Database::"KNH Vehicle", 'OnBeforeValidateRegistrationNo', '', true, true)]
-    local procedure OnBeforeValidateRegistrationNo(var Vehicle: Record "KNH Vehicle"; xVehicle: Record "KNH Vehicle")
+    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record "KNH Vehicle"; xKNHVehicle: Record "KNH Vehicle")
     begin
         Message('You have found me!');
     end;

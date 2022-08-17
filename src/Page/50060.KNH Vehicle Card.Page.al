@@ -136,10 +136,12 @@ page 50060 "KNH Vehicle Card"
                     ApplicationArea = All;
                     Caption = 'Balances';
                     Image = Report;
+                    ToolTip = 'Vehicle Balances';
                     Promoted = true;
+                    Promotedonly = true;
                     PromotedCategory = Report;
                     PromotedIsBig = true;
-
+                    RunObject = Page "KNH Vehicle Balances";
                 }
             }
         }

@@ -42,7 +42,7 @@ report 50061 "KNH Vehicle Balance"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(LogInteraction; LogInteraction)
+                    field(LogInteraction; LogInteract)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'Log Interaction';
@@ -61,43 +61,41 @@ report 50061 "KNH Vehicle Balance"
         trigger OnOpenPage()
         begin
             InitLogInteraction();
-            LogInteractionEnable := LogInteraction;
+            LogInteractionEnable := LogInteract;
         end;
     }
 
     trigger OnInitReport()
     begin
-        CompanyInfo.SetAutoCalcFields(Picture);
-        CompanyInfo.Get();
+        CompanyInformation.SetAutoCalcFields(Picture);
+        CompanyInformation.Get();
     end;
 
     trigger OnPostReport()
     begin
-        if LogInteraction and not CurrReport.Preview then
+        if LogInteract and not CurrReport.Preview then
             if Vehicle.FindSet() then
                 repeat
-                    if Vehicle."No." <> '' then begin
-                        //DocumentType, DocumentNo, DocNoOccurrence, VersionNo,AccountTableNo, AccountNo, SalespersonCode, CampaignNo, Description, OpportunityNo
-                        //SegManagement.LogDocument()
-                    end;
+                    if Vehicle."No." <> '' then;
+                //DocumentType, DocumentNo, DocNoOccurrence, VersionNo,AccountTableNo, AccountNo, SalespersonCode, CampaignNo, Description, OpportunityNo
+                //SegManagement.LogDocument()
                 until Vehicle.Next() = 0;
     end;
 
     trigger OnPreReport()
     begin
         if not CurrReport.UseRequestPage then
-            InitLogInteraction;
+            InitLogInteraction();
     end;
 
     var
-        LogInteraction: Boolean;
-        LogInteractionEnable: Boolean;
+        CompanyInformation: Record "Company Information";
         SegManagement: Codeunit SegManagement;
-        CompanyInfo: Record "Company Information";
+        LogInteract: Boolean;
+        LogInteractionEnable: Boolean;
 
     local procedure InitLogInteraction()
     begin
-        LogInteraction := SegManagement.FindInteractTmplCode(4) <> '';
+        LogInteract := SegManagement.FindInteractTmplCode(4) <> '';
     end;
-
 }

@@ -39,9 +39,9 @@ table 50065 "KNH Vehicle Journal Template"
 
             trigger OnValidate()
             begin
-                VehicleJnlLine.SetRange("Journal Template Name", Name);
-                VehicleJnlLine.ModifyAll("Source Code", "Source Code");
-                Modify;
+                KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
+                KNHVehicleJournalLine.ModifyAll("Source Code", "Source Code");
+                Modify();
             end;
         }
         field(11; "Reason Code"; Code[10])
@@ -70,10 +70,9 @@ table 50065 "KNH Vehicle Journal Template"
 
             trigger OnValidate()
             begin
-                if "No. Series" <> '' then begin
+                if "No. Series" <> '' then
                     if "No. Series" = "Posting No. Series" then
                         "Posting No. Series" := '';
-                end;
             end;
         }
         field(20; "Posting No. Series"; Code[20])
@@ -110,16 +109,14 @@ table 50065 "KNH Vehicle Journal Template"
 
     trigger OnDelete()
     begin
-        VehicleJnlLine.SetRange("Journal Template Name", Name);
-        VehicleJnlLine.DeleteAll(true);
-        VehicleJnlBatch.SetRange("Journal Template Name", Name);
-        VehicleJnlBatch.DeleteAll();
+        KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
+        KNHVehicleJournalLine.DeleteAll(true);
+        KNHVehicleJournalBatch.SetRange("Journal Template Name", Name);
+        KNHVehicleJournalBatch.DeleteAll();
     end;
 
     var
-        PostTxt: Label 'must not be %1';
-        VehicleJnlBatch: Record "KNH Vehicle Journal Batch";
-        VehicleJnlLine: Record "KNH Vehicle Journal Line";
-        SourceCodeSetup: Record "Source Code Setup";
-        ReservEngineMgt: Codeunit "Reservation Engine Mgt.";
+        KNHVehicleJournalBatch: Record "KNH Vehicle Journal Batch";
+        KNHVehicleJournalLine: Record "KNH Vehicle Journal Line";
+        PostTxt: Label 'must not be %1', Comment = '%1 = Posting no. Series';
 }

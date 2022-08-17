@@ -25,8 +25,7 @@ table 50067 "KNH Vehicle Journal Line"
 
             trigger OnValidate()
             begin
-                if "Vehicle No." <> xRec."Vehicle No." then begin
-                end;
+                if "Vehicle No." <> xRec."Vehicle No." then;
             end;
         }
         field(4; "Posting Date"; Date)
@@ -34,8 +33,6 @@ table 50067 "KNH Vehicle Journal Line"
             Caption = 'Posting Date';
 
             trigger OnValidate()
-            var
-                CheckDateConflict: Codeunit "Reservation-Check Date Confl.";
             begin
                 TestField("Posting Date");
                 Validate("Document Date", "Posting Date");

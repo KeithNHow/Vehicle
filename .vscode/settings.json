@@ -25,4 +25,8 @@
     "CRS.FileNamePattern": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "workbench.colorCustomizations": {
+    "editorError.foreground": "#be0101", 
+    "editorWarning.foreground": "#dceb06"
+    }
 }

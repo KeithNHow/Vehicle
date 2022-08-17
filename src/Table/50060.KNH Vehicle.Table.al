@@ -165,7 +165,7 @@ table 50060 "KNH Vehicle"
     trigger OnInsert()
     begin
         InitVehicleNo();
-        DimMgt.UpdateDefaultDim(DATABASE::"KNH Vehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
+        CuDimensionManagement.UpdateDefaultDim(DATABASE::"KNH Vehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
         Message(Format("No."));
 
         //OnAfterOnInsert(Rec, xRec);
@@ -181,8 +181,8 @@ table 50060 "KNH Vehicle"
             exit;
 
         if "No." <> xRec."No." then begin
-            VehicleSetup.Get();
-            NoSeriesMgt.TestManual(VehicleSetup."Vehicle Nos.");
+            KNHVehicleSetup.Get();
+            NoSeriesManagement.TestManual(KNHVehicleSetup."Vehicle Nos.");
             "No. Series" := '';
         end;
     end;
@@ -197,27 +197,27 @@ table 50060 "KNH Vehicle"
             exit;
 
         if "No." = '' then begin
-            VehicleSetup.Get();
-            VehicleSetup.TestField("Vehicle Nos.");
-            NoSeriesMgt.InitSeries(VehicleSetup."Vehicle Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            KNHVehicleSetup.Get();
+            KNHVehicleSetup.TestField("Vehicle Nos.");
+            NoSeriesManagement.InitSeries(KNHVehicleSetup."Vehicle Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
     end;
 
     /// <summary>
     /// AssistEdit.
     /// </summary>
-    /// <param name="OldVehicle">Record Customer.</param>
+    /// <param name="OldKNHVehicle">Record "KNH Vehicle".</param>
     /// <returns>Return value of type Boolean.</returns>
-    procedure AssistEdit(OldVehicle: Record "KNH Vehicle"): Boolean
+    procedure AssistEdit(OldKNHVehicle: Record "KNH Vehicle"): Boolean
     var
-        Vehicle: Record "KNH Vehicle";
+        KNHVehicle: Record "KNH Vehicle";
     begin
-        Vehicle := Rec;
-        VehicleSetup.Get();
-        VehicleSetup.TestField("Vehicle Nos.");
-        if NoSeriesMgt.SelectSeries(VehicleSetup."Vehicle Nos.", OldVehicle."No. Series", VehicleSetup."Vehicle Nos.") then begin
-            NoSeriesMgt.SetSeries("No.");
-            Rec := "Vehicle";
+        KNHVehicle := Rec;
+        KNHVehicleSetup.Get();
+        KNHVehicleSetup.TestField("Vehicle Nos.");
+        if NoSeriesManagement.SelectSeries(KNHVehicleSetup."Vehicle Nos.", OldKNHVehicle."No. Series", KNHVehicleSetup."Vehicle Nos.") then begin
+            NoSeriesManagement.SetSeries("No.");
+            Rec := KNHVehicle;
             //OnAssistEditOnBeforeExit(Cust);
             exit(true);
         end;
@@ -237,27 +237,27 @@ table 50060 "KNH Vehicle"
         if IsHandled then
             exit;
 
-        DimMgt.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
+        CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
         if not IsTemporary then begin
-            DimMgt.SaveDefaultDim(DATABASE::"KNH Vehicle", "No.", FieldNumber, ShortcutDimCode);
-            Modify();
+            CuDimensionManagement.SaveDefaultDim(DATABASE::"KNH Vehicle", "No.", FieldNumber, ShortcutDimCode);
+            Rec.Modify();
         end;
 
         //OnAfterValidateShortcutDimCode(Rec, xRec, FieldNumber, ShortcutDimCode);
     end;
 
     var
-        DimMgt: Codeunit DimensionManagement;
-        VehicleSetup: Record "KNH Vehicle Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
+        KNHVehicleSetup: Record "KNH Vehicle Setup";
+        NoSeriesManagement: Codeunit NoSeriesManagement;
+        CuDimensionManagement: Codeunit DimensionManagement;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateRegistrationNo(var Vehicle: Record "KNH Vehicle"; xVehicle: Record "KNH Vehicle")
+    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record "KNH Vehicle"; xKNHVehicle: Record "KNH Vehicle")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateRegistrationNo(var Vehicle: Record "KNH Vehicle"; xVehicle: Record "KNH Vehicle")
+    local procedure OnAfterValidateRegistrationNo(var KNHVehicle: Record "KNH Vehicle"; xKNHVehicle: Record "KNH Vehicle")
     begin
     end;
 }

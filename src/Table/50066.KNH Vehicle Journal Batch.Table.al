@@ -32,10 +32,10 @@ table 50066 "KNH Vehicle Journal Batch"
             trigger OnValidate()
             begin
                 if "Reason Code" <> xRec."Reason Code" then begin
-                    ItemJnlLine.SetRange("Journal Template Name", "Journal Template Name");
-                    ItemJnlLine.SetRange("Journal Batch Name", Name);
-                    ItemJnlLine.ModifyAll("Reason Code", "Reason Code");
-                    Modify;
+                    ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+                    ItemJournalLine.SetRange("Journal Batch Name", Name);
+                    ItemJournalLine.ModifyAll("Reason Code", "Reason Code");
+                    Modify();
                 end;
             end;
         }
@@ -47,10 +47,10 @@ table 50066 "KNH Vehicle Journal Batch"
             trigger OnValidate()
             begin
                 if "No. Series" <> '' then begin
-                    ItemJnlTemplate.Get("Journal Template Name");
-                    if ItemJnlTemplate.Recurring then
+                    ItemJournalTemplate.Get("Journal Template Name");
+                    if ItemJournalTemplate.Recurring then
                         Error(
-                          Text000,
+                          RecurringJnlTxt,
                           FieldCaption("Posting No. Series"));
                     if "No. Series" = "Posting No. Series" then
                         Validate("Posting No. Series", '');
@@ -65,11 +65,11 @@ table 50066 "KNH Vehicle Journal Batch"
             trigger OnValidate()
             begin
                 if ("Posting No. Series" = "No. Series") and ("Posting No. Series" <> '') then
-                    FieldError("Posting No. Series", StrSubstNo(Text001, "Posting No. Series"));
-                ItemJnlLine.SetRange("Journal Template Name", "Journal Template Name");
-                ItemJnlLine.SetRange("Journal Batch Name", Name);
-                ItemJnlLine.ModifyAll("Posting No. Series", "Posting No. Series");
-                Modify;
+                    FieldError("Posting No. Series", StrSubstNo(PostingNoTxt, "Posting No. Series"));
+                ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+                ItemJournalLine.SetRange("Journal Batch Name", Name);
+                ItemJournalLine.ModifyAll("Posting No. Series", "Posting No. Series");
+                Modify();
             end;
         }
         field(21; "Template Type"; Enum "Item Journal Template Type")
@@ -95,39 +95,39 @@ table 50066 "KNH Vehicle Journal Batch"
 
     trigger OnDelete()
     begin
-        ItemJnlLine.SetRange("Journal Template Name", "Journal Template Name");
-        ItemJnlLine.SetRange("Journal Batch Name", Name);
-        ItemJnlLine.DeleteAll(true);
+        ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+        ItemJournalLine.SetRange("Journal Batch Name", Name);
+        ItemJournalLine.DeleteAll(true);
     end;
 
     trigger OnInsert()
     begin
         LockTable();
-        ItemJnlTemplate.Get("Journal Template Name");
+        ItemJournalTemplate.Get("Journal Template Name");
     end;
 
     trigger OnRename()
     begin
-        ItemJnlLine.SetRange("Journal Template Name", xRec."Journal Template Name");
-        ItemJnlLine.SetRange("Journal Batch Name", xRec.Name);
-        while ItemJnlLine.FindFirst do
-            ItemJnlLine.Rename("Journal Template Name", Name, ItemJnlLine."Line No.");
+        ItemJournalLine.SetRange("Journal Template Name", xRec."Journal Template Name");
+        ItemJournalLine.SetRange("Journal Batch Name", xRec.Name);
+        while ItemJournalLine.FindFirst() do
+            ItemJournalLine.Rename("Journal Template Name", Name, ItemJournalLine."Line No.");
     end;
 
     var
-        Text000: Label 'Only the %1 field can be filled in on recurring journals.';
-        Text001: Label 'must not be %1';
-        ItemJnlTemplate: Record "Item Journal Template";
-        ItemJnlLine: Record "Item Journal Line";
+        ItemJournalTemplate: Record "Item Journal Template";
+        ItemJournalLine: Record "Item Journal Line";
+        RecurringJnlTxt: Label 'Only the %1 field can be filled in on recurring journals.', Comment = '%1 = Posting No. Series';
+        PostingNoTxt: Label 'must not be %1', Comment = '%1 = Posting No. series';
 
     /// <summary>
     /// SetupNewBatch.
     /// </summary>
     procedure SetupNewBatch()
     begin
-        ItemJnlTemplate.Get("Journal Template Name");
-        "No. Series" := ItemJnlTemplate."No. Series";
-        "Posting No. Series" := ItemJnlTemplate."Posting No. Series";
-        "Reason Code" := ItemJnlTemplate."Reason Code";
+        ItemJournalTemplate.Get("Journal Template Name");
+        "No. Series" := ItemJournalTemplate."No. Series";
+        "Posting No. Series" := ItemJournalTemplate."Posting No. Series";
+        "Reason Code" := ItemJournalTemplate."Reason Code";
     end;
 }
