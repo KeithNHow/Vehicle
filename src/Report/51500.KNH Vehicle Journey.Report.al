@@ -1,7 +1,7 @@
 /// <summary>
-/// Report KNH Vehicle Journey(ID 50060).
+/// Report KNH Vehicle Journey(ID 51500).
 /// </summary>
-report 50060 "KNH Vehicle Journey"
+report 51500 "KNH Vehicle Journey"
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journey';

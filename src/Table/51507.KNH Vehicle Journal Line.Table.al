@@ -1,7 +1,7 @@
 /// <summary>
-/// Table KNH Vehicle Journal Line (ID 50067).
+/// Table KNH Vehicle Journal Line (ID 51507).
 /// </summary>
-table 50067 "KNH Vehicle Journal Line"
+table 51507 "KNH Vehicle Journal Line"
 {
     Caption = 'Vehicle Journal Line';
     DrillDownPageID = "Item Journal Lines";

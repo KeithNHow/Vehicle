@@ -1,7 +1,7 @@
 /// <summary>
-/// Page KNH Vehicle Setup (ID 50063).
+/// Page KNH Vehicle Setup (ID 51503).
 /// </summary>
-page 50063 "KNH Vehicle Setup"
+page 51503 "KNH Vehicle Setup"
 {
     ApplicationArea = All;
     UsageCategory = Administration;

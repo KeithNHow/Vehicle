@@ -1,7 +1,7 @@
 /// <summary>
-/// Page KNH Vehicle Journal Template (ID 50064).
+/// Page KNH Vehicle Journal Template (ID 51504).
 /// </summary>
-page 50064 "KNH Vehicle Journal Template"
+page 51504 "KNH Vehicle Journal Template"
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journal Template';

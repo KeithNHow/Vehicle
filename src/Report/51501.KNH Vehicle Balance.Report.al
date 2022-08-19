@@ -1,7 +1,7 @@
 /// <summary>
-/// Report KNH Balance Report (ID 50061).
+/// Report KNH Balance Report (ID 51501).
 /// </summary>
-report 50061 "KNH Vehicle Balance"
+report 51501 "KNH Vehicle Balance"
 {
     ApplicationArea = All;
     Caption = 'Balance Report';

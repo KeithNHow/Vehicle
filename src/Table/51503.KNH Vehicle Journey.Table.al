@@ -1,7 +1,7 @@
 /// <summary>
-/// Table KNH Vehicle Journey (ID 50063).
+/// Table KNH Vehicle Journey (ID 51503).
 /// </summary>
-table 50063 "KNH Vehicle Journey"
+table 51503 "KNH Vehicle Journey"
 {
     Caption = 'Vehicle Journey';
     DataClassification = CustomerContent;

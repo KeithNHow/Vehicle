@@ -1,7 +1,7 @@
 /// <summary>
-/// Unknown KNH Vehicle (ID 50060).
+/// Unknown KNH Vehicle (ID 51500).
 /// </summary>
-permissionset 50060 "KNH Vehicle"
+permissionset 51500 "KNH Vehicle"
 {
     Assignable = true;
     Caption = 'KNH Vehicle', MaxLength = 30;

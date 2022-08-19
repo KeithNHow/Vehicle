@@ -1,7 +1,7 @@
 /// <summary>
-/// Table Car Brand (ID 50100)
+/// Table Car Brand (ID 51501)
 /// </summary>
-table 50061 "KNH Vehicle Make"
+table 51501 "KNH Vehicle Make"
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Make';

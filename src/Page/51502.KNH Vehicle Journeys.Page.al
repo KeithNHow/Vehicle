@@ -1,7 +1,7 @@
 /// <summary>
-/// Page KNH Vehicle Journeys (ID 50062).
+/// Page KNH Vehicle Journeys (ID 51502).
 /// </summary>
-page 50062 "KNH Vehicle Journeys"
+page 51502 "KNH Vehicle Journeys"
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journeys';

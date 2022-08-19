@@ -1,7 +1,7 @@
 /// <summary>
-/// Table Vehicle Journal Template (ID 50065).
+/// Table Vehicle Journal Template (ID 51505).
 /// </summary>
-table 50065 "KNH Vehicle Journal Template"
+table 51505 "KNH Vehicle Journal Template"
 {
     Caption = 'Vehicle Journal Template';
     //LookupPageID = "KNH Journal Template List";

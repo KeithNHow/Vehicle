@@ -1,7 +1,7 @@
 /// <summary>
-/// Page "Vehicle" (ID 50060).
+/// Page "Vehicle" (ID 51500).
 /// </summary>
-page 50060 "KNH Vehicle Card"
+page 51500 "KNH Vehicle Card"
 {
     ApplicationArea = All;
     UsageCategory = Documents;

@@ -1,7 +1,7 @@
 /// <summary>
-/// Table Vehicle Model (ID 50101)
+/// Table Vehicle Model (ID 51502)
 /// </summary>
-table 50062 "KNH Vehicle Model"
+table 51502 "KNH Vehicle Model"
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Model';

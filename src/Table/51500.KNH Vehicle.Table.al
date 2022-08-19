@@ -1,7 +1,7 @@
 /// <summary>
-/// Table KNH Vehicle (ID 50060).
+/// Table KNH Vehicle (ID 51500).
 /// </summary>
-table 50060 "KNH Vehicle"
+table 51500 "KNH Vehicle"
 {
     Caption = 'Vehicle';
     DataClassification = ToBeClassified;

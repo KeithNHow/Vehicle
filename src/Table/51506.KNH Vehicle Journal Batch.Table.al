@@ -1,7 +1,7 @@
 /// <summary>
-/// Table KNH Vehicle Journal Batch (ID 50066).
+/// Table KNH Vehicle Journal Batch (ID 51506).
 /// </summary>
-table 50066 "KNH Vehicle Journal Batch"
+table 51506 "KNH Vehicle Journal Batch"
 {
     Caption = 'Vehicle Journal Batch';
     DataCaptionFields = Name, Description;

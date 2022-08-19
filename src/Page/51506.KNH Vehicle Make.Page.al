@@ -1,12 +1,12 @@
 /// <summary>
-/// Page Vehicle Model (ID 50067)
+/// Page Vehicle Make (ID 51506)
 /// </summary>
-page 50067 "KNH Vehicle Model"
+page 51506 "KNH Vehicle Make"
 {
     ApplicationArea = All;
-    Caption = 'Vehicle Model';
+    Caption = 'Vehicle make';
     PageType = List;
-    SourceTable = "KNH Vehicle Model";
+    SourceTable = "KNH Vehicle Make";
     UsageCategory = Administration;
 
     layout
@@ -18,22 +18,22 @@ page 50067 "KNH Vehicle Model"
                 field(Code; Rec.Code)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the vehicle model code.';
+                    Tooltip = 'Specifies the vehicle make code.';
+                }
+                field(name; Rec.Name)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the vehicle make name.';
                 }
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the vehicle description.';
+                    ToolTip = 'Specifies the vehicle make description.';
                 }
-                field(Power; Rec.Power)
+                field(Country; Rec.Country)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the horse power of the vehicle model.';
-                }
-                field(Cost; Rec.Cost)
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the currect cost of the vehicle model.';
+                    ToolTip = 'Specifies the vehicle make country.';
                 }
             }
         }

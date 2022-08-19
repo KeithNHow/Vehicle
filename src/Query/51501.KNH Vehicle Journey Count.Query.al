@@ -1,7 +1,7 @@
 /// <summary>
-/// Query KNH Vehicle Journey Count (ID 50061).
+/// Query KNH Vehicle Journey Count (ID 51501).
 /// </summary>
-query 50061 "KNH Vehicle Journey Count"
+query 51501 "KNH Vehicle Journey Count"
 {
     Caption = 'Vehicle Journey Count';
     QueryType = Normal;

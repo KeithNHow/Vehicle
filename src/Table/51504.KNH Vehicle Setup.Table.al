@@ -1,7 +1,7 @@
 /// <summary>
-/// Table KNH Vehicle Setup (ID 50064).
+/// Table KNH Vehicle Setup (ID 51504).
 /// </summary>
-table 50064 "KNH Vehicle Setup"
+table 51504 "KNH Vehicle Setup"
 {
     Caption = 'Vehicle Setup';
     DataClassification = ToBeClassified;

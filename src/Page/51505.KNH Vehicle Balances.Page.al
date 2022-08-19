@@ -1,7 +1,7 @@
 /// <summary>
-/// Page KNH Vehicle Balances (ID 50065).
+/// Page KNH Vehicle Balances (ID 51505).
 /// </summary>
-page 50065 "KNH Vehicle Balances"
+page 51505 "KNH Vehicle Balances"
 {
     Caption = 'KNH Vehicle Balances';
     PageType = Card;

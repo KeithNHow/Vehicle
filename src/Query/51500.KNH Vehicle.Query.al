@@ -1,7 +1,7 @@
 /// <summary>
-/// Query KNH Vehicle (ID 50060).
+/// Query KNH Vehicle (ID 51500).
 /// </summary>
-query 50060 "KNH Vehicle"
+query 51500 "KNH Vehicle"
 {
     Caption = 'Vehicle Overview';
     QueryType = Normal;

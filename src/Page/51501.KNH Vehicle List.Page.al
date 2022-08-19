@@ -1,7 +1,7 @@
 /// <summary>
-/// Page KNH Vehicle List (ID 50061).
+/// Page KNH Vehicle List (ID 51501).
 /// </summary>
-page 50061 "KNH Vehicle List"
+page 51501 "KNH Vehicle List"
 {
     ApplicationArea = All;
     Caption = 'Vehicles';
