@@ -25,6 +25,16 @@ table 51501 "KNH Vehicle Make"
         field(4; "Country"; Text[100])
         {
             Caption = 'Country';
+            TableRelation = "Country/Region";
+
+            trigger OnValidate()
+            var
+                IsHandled: Boolean;
+            begin
+                OnBeforeValidateCountry(Rec, IsHandled);
+                Message('Validation Code');
+                OnAfterValidateCountry(Rec);
+            end;
         }
     }
 
@@ -39,4 +49,14 @@ table 51501 "KNH Vehicle Make"
     fieldgroups
     {
     }
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeValidateCountry(var Rec: Record "KNH Vehicle Make"; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterValidateCountry(var Rec: Record "KNH Vehicle Make")
+    begin
+    end;
 }
