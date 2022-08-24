@@ -6,19 +6,19 @@ page 51510 "KNH Vehicle Activities"
     Caption = 'Activities';
     PageType = CardPart;
     RefreshOnActivate = true;
-    SourceTable = "Sales Cue";
+    SourceTable = "KNH Vehicle Cue";
 
     layout
     {
         area(content)
         {
-            cuegroup("For Release")
+            cuegroup("Vehicles")
             {
-                Caption = 'For Release';
-                field("Sales Quotes - Open"; Rec."Sales Quotes - Open")
+                Caption = 'Vehicle Journeys';
+                field("Vehicle Journeys"; Rec."Vehicle Journeys")
                 {
                     ApplicationArea = All;
-                    DrillDownPageID = "Sales Quotes";
+                    DrillDownPageID = "KNH Vehicle Journeys";
                     ToolTip = 'Specifies the number of vehicle journeys that have been recorded.';
                 }
             }

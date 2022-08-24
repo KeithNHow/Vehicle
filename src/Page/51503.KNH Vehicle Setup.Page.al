@@ -6,8 +6,6 @@ page 51503 "KNH Vehicle Setup"
     ApplicationArea = All;
     UsageCategory = Administration;
     Caption = 'Vehicle Setup';
-    DeleteAllowed = false;
-    InsertAllowed = false;
     PageType = Card;
     SourceTable = "KNH Vehicle Setup";
 
