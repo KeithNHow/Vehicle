@@ -62,14 +62,14 @@ codeunit 51500 "KNH Event Subscriptions"
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnBeforeValidateCountry', '', true, true)]
-    local procedure OnBeforeValidateCountry(var Rec: Record "KNH Vehicle Make"; var IsHandled: Boolean)
+    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make"; var IsHandled: Boolean)
     begin
         IsHandled := true;
         Message('Some sort of task is carried out here.');
     end;
 
     [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnAfterValidateCountry', '', true, true)]
-    local procedure OnAfterValidateCountry(var Rec: Record "KNH Vehicle Make")
+    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make")
     begin
         Message('Validate which continent country belongs to.');
     end;

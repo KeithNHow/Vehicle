@@ -51,12 +51,12 @@ table 51501 "KNH Vehicle Make"
     }
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateCountry(var Rec: Record "KNH Vehicle Make"; var IsHandled: Boolean)
+    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make"; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateCountry(var Rec: Record "KNH Vehicle Make")
+    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make")
     begin
     end;
 }
