@@ -9,7 +9,7 @@
             "server": "http://keith-notebook",
             "serverInstance": "BC200",
             "authentication": "Windows",
-            "startupObjectId": 9006,
+            "startupObjectId": 51508,
             "startupObjectType": "Page",
             "port": 7649,
             "breakOnError": true,

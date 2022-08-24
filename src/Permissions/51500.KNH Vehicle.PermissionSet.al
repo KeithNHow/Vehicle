@@ -22,10 +22,14 @@ permissionset 51500 "KNH Vehicle"
         tabledata "KNH Vehicle Journal Batch" = RMID,
         table "KNH Vehicle Journal Line" = X,
         tabledata "KNH Vehicle Journal Line" = RMID,
+        table "KNH Vehicle Cue" = X,
+        tableData "KNH Vehicle Cue" = RMID,
         page "KNH Vehicle List" = X,
         page "KNH Vehicle Journeys" = X,
         page "KNH Vehicle Card" = X,
         page "KNH Vehicle Make" = X,
         page "KNH Vehicle Model" = X,
-        page "KNH Vehicle Journal Template" = X;
+        page "KNH Vehicle Journal Template" = X,
+        page "KNH Headline RC Vehicles" = X,
+        page "KNH Vehicle Activities" = X;
 }

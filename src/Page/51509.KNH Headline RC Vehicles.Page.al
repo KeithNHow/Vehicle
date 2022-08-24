@@ -52,9 +52,8 @@ page 51509 "KNH Headline RC Vehicles"
     end;
 
     var
-        [InDataSet]
-        DefaultFieldsVisible: Boolean;
+        RCHeadlinesPageCommon: Codeunit "RC Headlines Page Common";
         [InDataSet]
         UserGreetingVisible: Boolean;
-        RCHeadlinesPageCommon: Codeunit "RC Headlines Page Common";
+        DefaultFieldsVisible: Boolean;
 }
