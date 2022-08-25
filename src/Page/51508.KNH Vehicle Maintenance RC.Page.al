@@ -34,20 +34,26 @@ page 51508 "KNH Vehicle Maintenance RC"
                 action(Vehicles)
                 {
                     ApplicationArea = All;
-                    Caption = 'Vehicles';
+                    Caption = 'Vehicle List';
                     RunObject = page "KNH Vehicle List";
                 }
                 action(Journeys)
                 {
                     ApplicationArea = All;
-                    Caption = 'Journeys';
+                    Caption = 'Vehicle Details';
                     RunObject = page "KNH Vehicle Journeys";
                 }
-                action(Setup)
+                action(Make)
                 {
                     ApplicationArea = All;
-                    Caption = 'Setup';
-                    RunObject = page "KNH Vehicle Setup";
+                    Caption = 'Vehicle Make';
+                    RunObject = page "KNH Vehicle Make";
+                }
+                action(Model)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Vehicle Model';
+                    RunObject = page "KNH Vehicle Make";
                 }
             }
         }

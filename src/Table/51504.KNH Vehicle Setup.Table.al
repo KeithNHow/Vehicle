@@ -21,7 +21,7 @@ table 51504 "KNH Vehicle Setup"
             DataClassification = CustomerContent;
             TableRelation = "No. Series";
         }
-        field(3; "Registration No. Mandatory"; Code[20])
+        field(3; "Registration No. Mandatory"; Boolean)
         {
             Caption = 'Registration No. Mandatory';
             DataClassification = CustomerContent;
