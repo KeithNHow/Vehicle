@@ -37,8 +37,10 @@ permissionset 51500 "KNH Vehicle"
         page "KNH Headline RC Vehicles" = X,
         page "KNH Vehicle Activities" = X,
         codeunit "KNH Event Subscriptions" = X,
+        codeunit "KNH Vehicle Maintenance" = X,
         query "KNH Vehicle" = X,
         query "KNH Vehicle Journey Count" = X,
+        query "KNH Vehicle Make" = X,
         report "KNH Vehicle Journey" = X,
         report "KNH Vehicle Balance" = X;
 }

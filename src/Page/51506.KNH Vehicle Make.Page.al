@@ -20,7 +20,7 @@ page 51506 "KNH Vehicle Make"
                     ApplicationArea = All;
                     Tooltip = 'Specifies the vehicle make code.';
                 }
-                field(name; Rec.Name)
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the vehicle make name.';
