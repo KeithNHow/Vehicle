@@ -1,10 +1,8 @@
 /// <summary>
-/// Page Headline RC Vehicles (ID 51509).
+/// Page KNH Headline RC Vehicles (ID 51509).
 /// </summary>
 page 51509 "KNH Headline RC Vehicles"
 {
-    // NOTE: If you are making changes to this page you might want to make changes to all the other Headline RC pages
-
     Caption = 'Headline';
     PageType = HeadlinePart;
     RefreshOnActivate = true;

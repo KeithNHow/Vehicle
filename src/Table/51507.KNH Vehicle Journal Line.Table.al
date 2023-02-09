@@ -50,11 +50,11 @@ table 51507 "KNH Vehicle Journal Line"
         {
             Caption = 'Source No.';
             Editable = false;
-            TableRelation = IF ("Source Type" = CONST(Customer)) Customer
-            ELSE
-            IF ("Source Type" = CONST(Vendor)) Vendor
-            ELSE
-            IF ("Source Type" = CONST(Item)) Item;
+            TableRelation = IF ("Source Type" = const(Customer)) Customer
+            else
+            if ("Source Type" = const(Vendor)) Vendor
+            else
+            if ("Source Type" = const(Item)) Item;
         }
         field(7; "Document No."; Code[20])
         {
@@ -68,13 +68,12 @@ table 51507 "KNH Vehicle Journal Line"
         {
             Caption = 'Source Posting Group';
             Editable = false;
-            TableRelation = IF ("Source Type" = CONST(Customer)) "Customer Posting Group"
-            ELSE
-            IF ("Source Type" = CONST(Vendor)) "Vendor Posting Group"
-            ELSE
-            IF ("Source Type" = CONST(Item)) "Inventory Posting Group";
+            TableRelation = if ("Source Type" = const(Customer)) "Customer Posting Group"
+            else
+            if ("Source Type" = const(Vendor)) "Vendor Posting Group"
+            else
+            if ("Source Type" = const(Item)) "Inventory Posting Group";
         }
-
         field(16; "Unit Amount"; Decimal)
         {
             AutoFormatType = 2;
@@ -118,8 +117,8 @@ table 51507 "KNH Vehicle Journal Line"
         {
             CaptionClass = '1,2,1';
             Caption = 'Shortcut Dimension 1 Code';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1),
-                                                          Blocked = CONST(false));
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1),
+                                                          Blocked = const(false));
 
             trigger OnValidate()
             begin
@@ -130,8 +129,8 @@ table 51507 "KNH Vehicle Journal Line"
         {
             CaptionClass = '1,2,2';
             Caption = 'Shortcut Dimension 2 Code';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2),
-                                                          Blocked = CONST(false));
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2),
+                                                          Blocked = const(false));
             trigger OnValidate()
             begin
                 //ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
@@ -145,7 +144,7 @@ table 51507 "KNH Vehicle Journal Line"
         field(41; "Journal Batch Name"; Code[10])
         {
             Caption = 'Journal Batch Name';
-            TableRelation = "Item Journal Batch".Name WHERE("Journal Template Name" = FIELD("Journal Template Name"));
+            TableRelation = "Item Journal Batch".Name where("Journal Template Name" = field("Journal Template Name"));
         }
         field(42; "Reason Code"; Code[10])
         {
@@ -195,7 +194,6 @@ table 51507 "KNH Vehicle Journal Line"
             TableRelation = Currency;
         }
     }
-
     keys
     {
         key(Key1; "Journal Template Name", "Journal Batch Name", "Line No.")
@@ -204,11 +202,7 @@ table 51507 "KNH Vehicle Journal Line"
             MaintainSIFTIndex = false;
         }
     }
-
     fieldgroups
     {
     }
-
-
-
 }

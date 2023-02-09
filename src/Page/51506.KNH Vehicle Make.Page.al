@@ -1,5 +1,5 @@
 /// <summary>
-/// Page Vehicle Make (ID 51506)
+/// Page KNH Vehicle Make (ID 51506)
 /// </summary>
 page 51506 "KNH Vehicle Make"
 {
@@ -15,7 +15,7 @@ page 51506 "KNH Vehicle Make"
         {
             repeater(Group)
             {
-                field(Code; Rec.Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                     Tooltip = 'Specifies the vehicle make code.';

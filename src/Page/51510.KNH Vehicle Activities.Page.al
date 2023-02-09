@@ -1,5 +1,5 @@
 /// <summary>
-/// Page Vehicle Activities (ID 51510).
+/// Page KNH Vehicle Activities (ID 51510).
 /// </summary>
 page 51510 "KNH Vehicle Activities"
 {
@@ -12,7 +12,7 @@ page 51510 "KNH Vehicle Activities"
     {
         area(content)
         {
-            cuegroup("Vehicles")
+            cuegroup(Vehicles)
             {
                 Caption = 'Vehicle Details';
                 field("Vehicle Journeys"; Rec."Vehicle Journeys")

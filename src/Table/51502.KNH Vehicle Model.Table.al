@@ -1,5 +1,5 @@
 /// <summary>
-/// Table Vehicle Model (ID 51502)
+/// Table KNH Vehicle Model (ID 51502)
 /// </summary>
 table 51502 "KNH Vehicle Model"
 {
@@ -10,7 +10,7 @@ table 51502 "KNH Vehicle Model"
 
     fields
     {
-        field(1; Code; Code[10])
+        field(1; "Code"; Code[10])
         {
             Caption = 'Code';
         }
@@ -22,7 +22,7 @@ table 51502 "KNH Vehicle Model"
         {
             Caption = 'Power (cc)';
         }
-        field(4; "FuelType"; Enum "KNH Vehicle Fuel Type")
+        field(4; FuelType; Enum "KNH Vehicle Fuel Type")
         {
             Caption = 'Fuel Type';
         }

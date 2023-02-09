@@ -51,7 +51,7 @@ page 51501 "KNH Vehicle List"
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';
-                SubPageLink = "Table ID" = CONST(50060), "No." = FIELD("No.");
+                SubPageLink = "Table ID" = const(50060), "No." = field("No.");
             }
             systempart(Control1900383207; Links)
             {

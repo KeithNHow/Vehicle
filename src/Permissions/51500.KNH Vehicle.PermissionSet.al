@@ -1,5 +1,5 @@
 /// <summary>
-/// Unknown KNH Vehicle (ID 51500).
+/// PermSet KNH Vehicle (ID 51500).
 /// </summary>
 permissionset 51500 "KNH Vehicle"
 {

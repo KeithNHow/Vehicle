@@ -1,5 +1,5 @@
 /// <summary>
-/// Page "Vehicle" (ID 51500).
+/// Page KNH Vehicle Card (ID 51500).
 /// </summary>
 page 51500 "KNH Vehicle Card"
 {

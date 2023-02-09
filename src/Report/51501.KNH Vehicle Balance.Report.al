@@ -1,5 +1,5 @@
 /// <summary>
-/// Report KNH Balance Report (ID 51501).
+/// Report KNH Vehicle Balance (ID 51501).
 /// </summary>
 report 51501 "KNH Vehicle Balance"
 {

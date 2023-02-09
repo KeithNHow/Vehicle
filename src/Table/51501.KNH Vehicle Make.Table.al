@@ -1,5 +1,5 @@
 /// <summary>
-/// Table Car Brand (ID 51501)
+/// Table KNH Vehicle Make (ID 51501)
 /// </summary>
 table 51501 "KNH Vehicle Make"
 {
@@ -10,7 +10,7 @@ table 51501 "KNH Vehicle Make"
 
     fields
     {
-        field(1; Code; Code[10])
+        field(1; "Code"; Code[10])
         {
             Caption = 'Code';
         }
@@ -22,7 +22,7 @@ table 51501 "KNH Vehicle Make"
         {
             Caption = 'Description';
         }
-        field(4; "Country"; Text[100])
+        field(4; Country; Text[100])
         {
             Caption = 'Country';
             TableRelation = "Country/Region";

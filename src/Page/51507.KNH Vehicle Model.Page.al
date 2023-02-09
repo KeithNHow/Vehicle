@@ -1,5 +1,5 @@
 /// <summary>
-/// Page Vehicle Model (ID 51507)
+/// Page KNH Vehicle Model (ID 51507)
 /// </summary>
 page 51507 "KNH Vehicle Model"
 {
@@ -15,7 +15,7 @@ page 51507 "KNH Vehicle Model"
         {
             repeater(Group)
             {
-                field(Code; Rec.Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the vehicle model code.';

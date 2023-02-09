@@ -36,6 +36,19 @@ codeunit 51500 "KNH Event Subscriptions"
         Message('I am Here!');
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnBeforeValidateCountry', '', true, true)]
+    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make"; var IsHandled: Boolean)
+    begin
+        IsHandled := true;
+        Message('Some sort of task is carried out here.');
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnAfterValidateCountry', '', true, true)]
+    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make")
+    begin
+        Message('Validate which continent country belongs to.');
+    end;
+
     [Eventsubscriber(ObjectType::Page, Page::"Customer Card", 'OnAfterOnOpenPage', '', true, true)]
     local procedure OnAfterOnOpenPage(var Customer: Record Customer; xCustomer: Record Customer)
     begin
@@ -61,19 +74,6 @@ codeunit 51500 "KNH Event Subscriptions"
         Message('I am Here!');
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnBeforeValidateCountry', '', true, true)]
-    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make"; var IsHandled: Boolean)
-    begin
-        IsHandled := true;
-        Message('Some sort of task is carried out here.');
-    end;
-
-    [EventSubscriber(ObjectType::Table, Database::"KNH Vehicle Make", 'OnAfterValidateCountry', '', true, true)]
-    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make")
-    begin
-        Message('Validate which continent country belongs to.');
-    end;
-
     /*
         [EventSubscriber(ObjectType::Query, Query::"KNH Vehicle", '', 'Make Code', true, true)]
         local procedure OnAfterElementMakeCode()
@@ -93,5 +93,4 @@ codeunit 51500 "KNH Event Subscriptions"
             Message('I am Here!');
         end;
         */
-
 }

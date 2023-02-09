@@ -21,17 +21,17 @@ table 51508 "KNH Vehicle Cue"
         }
         field(3; "Vehicle Cost"; Decimal)
         {
-            CalcFormula = sum("KNH Vehicle"."New Cost" where("New Cost" = filter(<> 0)));
             Caption = 'Vehicle Cost';
             Editable = false;
             FieldClass = Flowfield;
+            CalcFormula = sum("KNH Vehicle"."New Cost" where("New Cost" = filter(<> 0)));
         }
         field(4; "Vehicle Value"; Integer)
         {
-            CalcFormula = sum("KNH Vehicle"."Vehicle Mileage" where("Vehicle Mileage" = filter(<> 0)));
             Caption = 'Vehicle Mileage';
             Editable = false;
             FieldClass = FlowField;
+            CalcFormula = sum("KNH Vehicle"."Vehicle Mileage" where("Vehicle Mileage" = filter(<> 0)));
         }
     }
     keys

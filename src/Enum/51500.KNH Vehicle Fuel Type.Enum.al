@@ -1,5 +1,5 @@
 /// <summary>
-/// Enum Fuel Type (ID 51500)
+/// Enum KNH Vehicle Fuel Type (ID 51500)
 /// </summary>
 enum 51500 "KNH Vehicle Fuel Type"
 {

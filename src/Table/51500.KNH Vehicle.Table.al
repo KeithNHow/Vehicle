@@ -122,7 +122,6 @@ table 51500 "KNH Vehicle"
             ObsoleteReason = 'Created in error.';
             ObsoleteTag = 'field Removed.';
             ObsoleteState = Removed;
-
         }
         field(22; "Date Filter 2"; Date)
         {

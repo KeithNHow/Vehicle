@@ -74,7 +74,7 @@ table 51506 "KNH Vehicle Journal Batch"
         }
         field(21; "Template Type"; Enum "Item Journal Template Type")
         {
-            CalcFormula = Lookup("Item Journal Template".Type WHERE(Name = FIELD("Journal Template Name")));
+            CalcFormula = lookup("Item Journal Template".Type where(Name = field("Journal Template Name")));
             Caption = 'Template Type';
             Editable = false;
             FieldClass = FlowField;
