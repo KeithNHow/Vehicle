@@ -5,28 +5,34 @@
         "${PerTenantExtensionCop}",
         "${UICop}"
     ],
+
     "[al]": {
         "editor.wordBasedSuggestions": false,
         "editor.suggestSelection": "first",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.codeLens": false,
+        "editor.semanticHighlighting.enabled": true,
     },
+
     "al.ruleSetPath": "./.vscode/ruleset.json",
-    "al.backgroundCodeAnalysis": false,
-    "al.enableCodeActions": false,
-    "al.incrementalBuild": true,
+    "al.backgroundCodeAnalysis": true,
+    "al.enableCodeActions": true,
+    "al.packageCachePath": "./.alpackages",
+    "al-test-runner.sendDebugTelemetry": false,
     "al.compilationOptions": 
     {
         "generateReportLayout": true
     },
-    "editor.codeLens": false,
 
+    "CRS.ObjectNamePrefix": "KNH ",
     "CRS.DisableDefaultAlSnippets": false,
     "CRS.OnSaveAlFileAction": "Rename",
     "CRS.FileNamePattern": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "workbench.colorCustomizations": {
-    "editorError.foreground": "#be0101", 
-    "editorWarning.foreground": "#dceb06"
-    }
+
+    //"workbench.colorCustomizations": {
+    //"editorError.foreground": "#be0101", 
+    //"editorWarning.foreground": "#dceb06"
+    //},
 }

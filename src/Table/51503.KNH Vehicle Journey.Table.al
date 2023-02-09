@@ -90,6 +90,7 @@ table 51503 "KNH Vehicle Journey"
         }
         key(Key2; "Vehicle No.")
         {
+            SumIndexFields = Distance;
         }
     }
     fieldgroups

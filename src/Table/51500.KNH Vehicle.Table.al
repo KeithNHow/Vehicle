@@ -25,13 +25,13 @@ table 51500 "KNH Vehicle"
         {
             Caption = 'Make';
             FieldClass = FlowField;
-            CalcFormula = Lookup("KNH Vehicle Make".Code WHERE(Code = FIELD("Make Code")));
+            CalcFormula = lookup("KNH Vehicle Make".Code where(Code = field("Make Code")));
         }
         field(3; "Model Code"; Code[10])
         {
             Caption = 'Model';
             FieldClass = FlowField;
-            CalcFormula = Lookup("KNH Vehicle Model".Code WHERE(Code = FIELD("Model Code")));
+            CalcFormula = lookup("KNH Vehicle Model".Code where(Code = field("Model Code")));
         }
         field(4; "Registration No."; Code[10])
         {
@@ -91,7 +91,7 @@ table 51500 "KNH Vehicle"
             Caption = 'Global Dimension 1 Code';
             DataClassification = CustomerContent;
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1), Blocked = CONST(false));
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(1), Blocked = const(false));
 
             trigger OnValidate()
             begin
@@ -103,7 +103,7 @@ table 51500 "KNH Vehicle"
             Caption = 'Global Dimension 2 Code';
             DataClassification = CustomerContent;
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2), Blocked = CONST(false));
+            TableRelation = "Dimension Value".Code where("Global Dimension No." = const(2), Blocked = const(false));
 
             trigger OnValidate()
             begin
@@ -133,7 +133,7 @@ table 51500 "KNH Vehicle"
         {
             Caption = 'Vehicle Mileage';
             FieldClass = FlowField;
-            CalcFormula = Sum("KNH Vehicle Journey".Distance WHERE("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
+            CalcFormula = sum("KNH Vehicle Journey".Distance where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
         }
     }
 
@@ -142,13 +142,10 @@ table 51500 "KNH Vehicle"
         key(PK; "No.")
         {
             Clustered = true;
+            SumIndexFields = "New Cost";
         }
         key(Key2; "Registration No.") //secondary key
         {
-        }
-        key(Key3; "New Cost")
-        {
-            SumIndexFields = "New Cost";
         }
     }
 
@@ -165,7 +162,7 @@ table 51500 "KNH Vehicle"
     trigger OnInsert()
     begin
         InitVehicleNo();
-        CuDimensionManagement.UpdateDefaultDim(DATABASE::"KNH Vehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
+        CuDimensionManagement.UpdateDefaultDim(Database::"KNH Vehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
         Message(Format("No."));
 
         //OnAfterOnInsert(Rec, xRec);
@@ -239,7 +236,7 @@ table 51500 "KNH Vehicle"
 
         CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
         if not IsTemporary then begin
-            CuDimensionManagement.SaveDefaultDim(DATABASE::"KNH Vehicle", "No.", FieldNumber, ShortcutDimCode);
+            CuDimensionManagement.SaveDefaultDim(Database::"KNH Vehicle", "No.", FieldNumber, ShortcutDimCode);
             Rec.Modify();
         end;
 
