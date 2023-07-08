@@ -1,7 +1,7 @@
 /// <summary>
 /// Enum KNH Vehicle Fuel Type (ID 51500)
 /// </summary>
-enum 51500 "KNH Vehicle Fuel Type"
+enum 51500 "KNHVehicleFuelType"
 {
     Extensible = true;
     value(0; Petrol)

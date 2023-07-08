@@ -1,12 +1,12 @@
 /// <summary>
 /// Page KNH Vehicle Activities (ID 51510).
 /// </summary>
-page 51510 "KNH Vehicle Activities"
+page 51510 "KNHVehicleActivities"
 {
     Caption = 'Activities';
     PageType = CardPart;
     RefreshOnActivate = true;
-    SourceTable = "KNH Vehicle Cue";
+    SourceTable = "KNHVehicleCue";
 
     layout
     {
@@ -18,13 +18,13 @@ page 51510 "KNH Vehicle Activities"
                 field("Vehicle Journeys"; Rec."Vehicle Journeys")
                 {
                     ApplicationArea = All;
-                    DrillDownPageID = "KNH Vehicle Journeys";
+                    DrillDownPageID = "KNHVehicleJourneys";
                     ToolTip = 'Specifies the number of vehicle journeys that have been recorded.';
                 }
                 field("Vehicle Cost"; Rec."Vehicle Cost")
                 {
                     ApplicationArea = All;
-                    DrillDownPageId = "KNH Vehicle List";
+                    DrillDownPageId = "KNHVehicleList";
                     ToolTip = 'Specifies the Total Cost of vehicles.';
                 }
             }

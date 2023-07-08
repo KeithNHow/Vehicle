@@ -1,7 +1,7 @@
 /// <summary>
 /// Table KNH Vehicle Make (ID 51501)
 /// </summary>
-table 51501 "KNH Vehicle Make"
+table 51501 "KNHVehicleMake"
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Make';
@@ -31,7 +31,7 @@ table 51501 "KNH Vehicle Make"
             var
                 IsHandled: Boolean;
             begin
-                OnBeforeValidateCountry(Rec, IsHandled);
+                OnBeforeValidateCountry(xRec, IsHandled);
                 Message('Validation Code');
                 OnAfterValidateCountry(Rec);
             end;
@@ -51,12 +51,12 @@ table 51501 "KNH Vehicle Make"
     }
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make"; var IsHandled: Boolean)
+    local procedure OnBeforeValidateCountry(var KNHVehicleMake: Record "KNHVehicleMake"; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNH Vehicle Make")
+    local procedure OnAfterValidateCountry(var KNHVehicleMake: Record "KNHVehicleMake")
     begin
     end;
 }

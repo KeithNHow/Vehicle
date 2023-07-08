@@ -1,7 +1,7 @@
 /// <summary>
 /// Table KNH Vehicle Journal Batch (ID 51506).
 /// </summary>
-table 51506 "KNH Vehicle Journal Batch"
+table 51506 "KNHVehicleJournalBatch"
 {
     Caption = 'Vehicle Journal Batch';
     DataCaptionFields = Name, Description;
@@ -13,7 +13,7 @@ table 51506 "KNH Vehicle Journal Batch"
         {
             Caption = 'Journal Template Name';
             NotBlank = true;
-            TableRelation = "KNH Vehicle Journal Template";
+            TableRelation = "KNHVehicleJournalTemplate";
         }
         field(2; Name; Code[10])
         {

@@ -1,13 +1,13 @@
 /// <summary>
 /// Page KNH Vehicle Card (ID 51500).
 /// </summary>
-page 51500 "KNH Vehicle Card"
+page 51500 "KNHVehicleCard"
 {
     ApplicationArea = All;
     UsageCategory = Documents;
     Caption = 'Vehicle';
     PageType = Card;
-    SourceTable = "KNH Vehicle";
+    SourceTable = "KNHVehicle";
     RefreshOnActivate = true;
     PromotedActionCategories = 'New,Process,Report,Navigate';
     AboutTitle = 'About vehicle details';
@@ -120,7 +120,7 @@ page 51500 "KNH Vehicle Card"
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = page "KNH Vehicle Journeys";
+                RunObject = page "KNHVehicleJourneys";
                 RunPageLink = "Vehicle No." = field("No.");
                 RunPageView = sorting("Vehicle No.") order(Descending);
                 ShortCutKey = 'Ctrl+F7';
@@ -141,7 +141,7 @@ page 51500 "KNH Vehicle Card"
                     Promotedonly = true;
                     PromotedCategory = Report;
                     PromotedIsBig = true;
-                    RunObject = Page "KNH Vehicle Balances";
+                    RunObject = Page "KNHVehicleBalances";
                 }
             }
         }

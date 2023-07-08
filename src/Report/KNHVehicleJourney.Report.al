@@ -1,7 +1,7 @@
 /// <summary>
 /// Report KNH Vehicle Journey(ID 51500).
 /// </summary>
-report 51500 "KNH Vehicle Journey"
+report 51500 "KNHVehicleJourney"
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journey';
@@ -11,7 +11,7 @@ report 51500 "KNH Vehicle Journey"
 
     dataset
     {
-        dataitem(KNHVehicleJourney; "KNH Vehicle Journey")
+        dataitem(KNHVehicleJourney; "KNHVehicleJourney")
         {
             column(VehicleNo; "Vehicle No.")
             {
@@ -57,4 +57,37 @@ report 51500 "KNH Vehicle Journey"
             }
         }
     }
+
+    trigger OnInitReport()
+    begin
+
+    end;
+
+    trigger OnPreReport()
+    var
+        IsHandled: Boolean;
+        A: Integer;
+        B: Integer;
+    begin
+        IsHandled := false;
+        MyReportEvent(IsHandled);
+        if not IsHandled then begin
+            A := 1;
+            B := 2;
+            Message(Format(B) + ' > ' + Format(A));
+        end;
+    end;
+
+    trigger OnPostReport()
+    begin
+    end;
+
+    /// <summary>
+    /// MyReportEvent.
+    /// </summary>
+    /// <param name="IsHandled">VAR Boolean.</param>
+    [IntegrationEvent(true, false)]
+    procedure MyReportEvent(var IsHandled: Boolean)
+    begin
+    end;
 }

@@ -1,7 +1,7 @@
 /// <summary>
 /// Query KNH Vehicle (ID 51500).
 /// </summary>
-query 51500 "KNH Vehicle"
+query 51500 "KNHVehicle"
 {
     Caption = 'Vehicle Overview';
     QueryType = Normal;
@@ -9,7 +9,7 @@ query 51500 "KNH Vehicle"
 
     elements
     {
-        dataitem(KNHVehicle; "KNH Vehicle")
+        dataitem(KNHVehicle; "KNHVehicle")
         {
             DataItemTableFilter = "Registration Date" = filter(<> 0D), "New Cost" = filter(10000);
             column(No; "No.")
@@ -45,7 +45,7 @@ query 51500 "KNH Vehicle"
             column(RoadTaxDate; "Road Tax Date")
             {
             }
-            dataitem(KNHVehicleJourney; "KNH Vehicle Journey")
+            dataitem(KNHVehicleJourney; "KNHVehicleJourney")
             {
                 DataItemLink = "Vehicle No." = KNHVehicle."No.";
                 SqlJoinType = InnerJoin;
@@ -66,6 +66,12 @@ query 51500 "KNH Vehicle"
     }
 
     trigger OnBeforeOpen()
+    begin
+        MyQueryEvent();
+    end;
+
+    [IntegrationEvent(true, false)]
+    local procedure MyQueryEvent()
     begin
     end;
 }

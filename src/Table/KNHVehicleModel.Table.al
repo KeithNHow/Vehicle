@@ -1,7 +1,7 @@
 /// <summary>
 /// Table KNH Vehicle Model (ID 51502)
 /// </summary>
-table 51502 "KNH Vehicle Model"
+table 51502 "KNHVehicleModel"
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Model';
@@ -22,7 +22,7 @@ table 51502 "KNH Vehicle Model"
         {
             Caption = 'Power (cc)';
         }
-        field(4; FuelType; Enum "KNH Vehicle Fuel Type")
+        field(4; FuelType; Enum "KNHVehicleFuelType")
         {
             Caption = 'Fuel Type';
         }

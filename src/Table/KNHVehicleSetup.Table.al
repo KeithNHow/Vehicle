@@ -1,7 +1,7 @@
 /// <summary>
 /// Table KNH Vehicle Setup (ID 51504).
 /// </summary>
-table 51504 "KNH Vehicle Setup"
+table 51504 "KNHVehicleSetup"
 {
     Caption = 'Vehicle Setup';
     DataClassification = CustomerContent;

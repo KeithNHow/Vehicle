@@ -1,7 +1,7 @@
 /// <summary>
 /// Table KNH Vehicle Journal Line (ID 51507).
 /// </summary>
-table 51507 "KNH Vehicle Journal Line"
+table 51507 "KNHVehicleJournalLine"
 {
     Caption = 'Vehicle Journal Line';
     DrillDownPageID = "Item Journal Lines";
@@ -21,7 +21,7 @@ table 51507 "KNH Vehicle Journal Line"
         field(3; "Vehicle No."; Code[20])
         {
             Caption = 'Vehicle No.';
-            TableRelation = "KNH Vehicle";
+            TableRelation = "KNHVehicle";
 
             trigger OnValidate()
             begin

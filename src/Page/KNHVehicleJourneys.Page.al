@@ -1,12 +1,12 @@
 /// <summary>
 /// Page KNH Vehicle Journeys (ID 51502).
 /// </summary>
-page 51502 "KNH Vehicle Journeys"
+page 51502 "KNHVehicleJourneys"
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journeys';
     PageType = List;
-    SourceTable = "KNH Vehicle Journey";
+    SourceTable = "KNHVehicleJourney";
     UsageCategory = Lists;
     Editable = false;
 
@@ -76,6 +76,25 @@ page 51502 "KNH Vehicle Journeys"
                     ToolTip = 'Specifies the value of the SystemModifiedBy field.';
                     ApplicationArea = All;
                 }
+            }
+        }
+    }
+    actions
+    {
+        area(navigation)
+        {
+            action(Journey)
+            {
+                ApplicationArea = All;
+                Caption = 'XML Export';
+                Image = CreateXMLFile;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                RunObject = xmlport "KNHVehicleJournalLine";
+                ShortCutKey = 'Ctrl+F6';
+                ToolTip = 'XML export of Vehicle Journal Line.';
             }
         }
     }

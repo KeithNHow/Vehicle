@@ -24,15 +24,10 @@
         "generateReportLayout": true
     },
 
-    "CRS.ObjectNamePrefix": "KNH ",
+    "CRS.ObjectNamePrefix": "KNH",
     "CRS.DisableDefaultAlSnippets": false,
     "CRS.OnSaveAlFileAction": "Rename",
-    "CRS.FileNamePattern": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "CRS.FileNamePatternExtensions": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-    "CRS.FileNamePatternPageCustomizations": "<ObjectId>.<ObjectName>.<ObjectTypeShortPascalCase>.al",
-
-    //"workbench.colorCustomizations": {
-    //"editorError.foreground": "#be0101", 
-    //"editorWarning.foreground": "#dceb06"
-    //},
+    "CRS.FileNamePattern": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternPageCustomizations": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
 }

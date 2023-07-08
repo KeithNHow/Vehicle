@@ -1,14 +1,14 @@
 /// <summary>
 /// Query KNH Vehicle Make (ID 51502).
 /// </summary>
-query 51502 "KNH Vehicle Make"
+query 51502 "KNHVehicleMake"
 {
     Caption = 'KNH Vehicle Make';
     QueryType = Normal;
 
     elements
     {
-        dataitem(KNHVehicleMake; "KNH Vehicle Make")
+        dataitem(KNHVehicleMake; "KNHVehicleMake")
         {
             column("Code"; "Code")
             {

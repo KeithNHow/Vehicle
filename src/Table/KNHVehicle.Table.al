@@ -1,13 +1,13 @@
 /// <summary>
 /// Table KNH Vehicle (ID 51500).
 /// </summary>
-table 51500 "KNH Vehicle"
+table 51500 "KNHVehicle"
 {
     Caption = 'Vehicle';
     DataClassification = ToBeClassified;
     DataCaptionFields = "No.", "Registration No.";
-    LookupPageID = "KNH Vehicle List";
-    DrillDownPageID = "KNH Vehicle List";
+    LookupPageID = "KNHVehicleList";
+    DrillDownPageID = "KNHVehicleList";
 
     fields
     {
@@ -25,13 +25,13 @@ table 51500 "KNH Vehicle"
         {
             Caption = 'Make';
             FieldClass = FlowField;
-            CalcFormula = lookup("KNH Vehicle Make".Code where(Code = field("Make Code")));
+            CalcFormula = lookup("KNHVehicleMake".Code where(Code = field("Make Code")));
         }
         field(3; "Model Code"; Code[10])
         {
             Caption = 'Model';
             FieldClass = FlowField;
-            CalcFormula = lookup("KNH Vehicle Model".Code where(Code = field("Model Code")));
+            CalcFormula = lookup("KNHVehicleModel".Code where(Code = field("Model Code")));
         }
         field(4; "Registration No."; Code[10])
         {
@@ -70,7 +70,7 @@ table 51500 "KNH Vehicle"
             Caption = 'Engine Plate No.';
             DataClassification = CustomerContent;
         }
-        field(10; "Fuel Type"; Enum "KNH Vehicle Fuel Type")
+        field(10; "Fuel Type"; Enum "KNHVehicleFuelType")
         {
             Caption = 'Engine Plate No.';
             DataClassification = CustomerContent;
@@ -79,7 +79,7 @@ table 51500 "KNH Vehicle"
         {
             Caption = 'New Cost';
             DataClassification = CustomerContent;
-            TableRelation = "KNH Vehicle Model".Code; //FK lookup
+            TableRelation = "KNHVehicleModel".Code; //FK lookup
         }
         field(12; "No. Series"; Code[20])
         {
@@ -132,7 +132,7 @@ table 51500 "KNH Vehicle"
         {
             Caption = 'Vehicle Mileage';
             FieldClass = FlowField;
-            CalcFormula = sum("KNH Vehicle Journey".Distance where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
+            CalcFormula = sum("KNHVehicleJourney".Distance where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
         }
     }
 
@@ -161,10 +161,10 @@ table 51500 "KNH Vehicle"
     trigger OnInsert()
     begin
         InitVehicleNo();
-        CuDimensionManagement.UpdateDefaultDim(Database::"KNH Vehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
+        CuDimensionManagement.UpdateDefaultDim(Database::"KNHVehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
         Message(Format("No."));
 
-        //OnAfterOnInsert(Rec, xRec);
+        OnAfterOnInsert(Rec, xRec);
     end;
 
     local procedure TestNoSeries()
@@ -204,9 +204,9 @@ table 51500 "KNH Vehicle"
     /// </summary>
     /// <param name="OldKNHVehicle">Record "KNH Vehicle".</param>
     /// <returns>Return value of type Boolean.</returns>
-    procedure AssistEdit(OldKNHVehicle: Record "KNH Vehicle"): Boolean
+    procedure AssistEdit(OldKNHVehicle: Record "KNHVehicle"): Boolean
     var
-        KNHVehicle: Record "KNH Vehicle";
+        KNHVehicle: Record "KNHVehicle";
     begin
         KNHVehicle := Rec;
         KNHVehicleSetup.Get();
@@ -235,7 +235,7 @@ table 51500 "KNH Vehicle"
 
         CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
         if not IsTemporary then begin
-            CuDimensionManagement.SaveDefaultDim(Database::"KNH Vehicle", "No.", FieldNumber, ShortcutDimCode);
+            CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
             Rec.Modify();
         end;
 
@@ -243,17 +243,22 @@ table 51500 "KNH Vehicle"
     end;
 
     var
-        KNHVehicleSetup: Record "KNH Vehicle Setup";
+        KNHVehicleSetup: Record "KNHVehicleSetup";
         NoSeriesManagement: Codeunit NoSeriesManagement;
         CuDimensionManagement: Codeunit DimensionManagement;
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record "KNH Vehicle"; xKNHVehicle: Record "KNH Vehicle")
+    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateRegistrationNo(var KNHVehicle: Record "KNH Vehicle"; xKNHVehicle: Record "KNH Vehicle")
+    local procedure OnAfterValidateRegistrationNo(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterOnInsert(var KNHVehicle: Record KNHVehicle; xKNHVehicle: Record KNHVehicle)
     begin
     end;
 }

@@ -3,7 +3,7 @@
 /// The partial records capability allows for loading a subset of normal table fields
 /// Available Methods - SetLoadFields, AddLoadFields, AreFieldsLoaded, LoadFields
 /// </summary>
-codeunit 51501 "KNH Vehicle Maintenance"
+codeunit 51501 "KNHVehicleMaintenance"
 {
     /// <summary>
     /// ComputeArithmeticMean.

@@ -1,11 +1,11 @@
 /// <summary>
 /// Page KNH Vehicle Balances (ID 51505).
 /// </summary>
-page 51505 "KNH Vehicle Balances"
+page 51505 "KNHVehicleBalances"
 {
     Caption = 'KNH Vehicle Balances';
     PageType = Card;
-    SourceTable = "KNH Vehicle";
+    SourceTable = "KNHVehicle";
     ApplicationArea = All;
     UsageCategory = Tasks;
 

@@ -1,7 +1,7 @@
 /// <summary>
 /// Report KNH Vehicle Balance (ID 51501).
 /// </summary>
-report 51501 "KNH Vehicle Balance"
+report 51501 "KNHVehicleBalance"
 {
     ApplicationArea = All;
     Caption = 'Balance Report';
@@ -11,7 +11,7 @@ report 51501 "KNH Vehicle Balance"
 
     dataset
     {
-        dataitem(Vehicle; "KNH Vehicle")
+        dataitem(Vehicle; "KNHVehicle")
         {
             column(No_; "No.")
             {

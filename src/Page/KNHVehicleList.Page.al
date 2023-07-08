@@ -1,14 +1,14 @@
 /// <summary>
 /// Page KNH Vehicle List (ID 51501).
 /// </summary>
-page 51501 "KNH Vehicle List"
+page 51501 "KNHVehicleList"
 {
     ApplicationArea = All;
     Caption = 'Vehicles';
-    CardPageID = "KNH Vehicle Card";
+    CardPageID = "KNHVehicleCard";
     PageType = List;
     Editable = false;
-    SourceTable = "KNH Vehicle";
+    SourceTable = "KNHVehicle";
     QueryCategory = 'Vehicle Category';
     UsageCategory = Lists;
     PromotedActionCategories = 'New,Process,Report,Navigate';
@@ -76,9 +76,9 @@ page 51501 "KNH Vehicle List"
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = page "KNH Vehicle Journeys";
+                RunObject = page "KNHVehicleJourneys";
                 RunPageLink = "Vehicle No." = field("No.");
-                RunPageView = sorting("Vehicle No.") order(Descending);
+                RunPageView = sorting("Vehicle No.") order(descending);
                 ShortCutKey = 'Ctrl+F7';
                 ToolTip = 'View the history of transactions that have been posted for the selected record.';
             }

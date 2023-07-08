@@ -1,7 +1,7 @@
 /// <summary>
 /// Page KNH Headline RC Vehicles (ID 51509).
 /// </summary>
-page 51509 "KNH Headline RC Vehicles"
+page 51509 "KNHHeadlineRCVehicles"
 {
     Caption = 'Headline';
     PageType = HeadlinePart;
