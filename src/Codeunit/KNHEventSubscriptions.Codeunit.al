@@ -151,7 +151,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHEventPublications codeunit
     // Event = OnAddressLineChanged
     // DisplayXMLEventMessage procedure contains no parameters
-    [EventSubscriber(ObjectType::XmlPort, XMLPort::"KNHVehicleJournalLine", 'KNHXMLEvent', '', true, true)]
+    [EventSubscriber(ObjectType::XmlPort, XMLPort::"KNHVehicleJnlLineExp", 'KNHXMLEvent', '', true, true)]
     local procedure DisplayXMLEventMessage()
     begin
         Message('I am Here!');

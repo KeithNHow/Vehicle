@@ -1,29 +1,24 @@
 /// <summary>
-/// XmlPort "KNHVehicleJournalLine" (ID 51500).
+/// XmlPort "KNH Vehicle Journal Line Import" (ID 51501).
 /// </summary>
-xmlport 51500 KNHVehicleJournalLine
+xmlport 51501 "KNHVehicleJnlLineImp"
 {
-    Caption = 'KNHVehicleJournalLine';
-
+    Caption = 'Vehicle Journal Line Import';
+    Encoding = UTF8;
+    FormatEvaluate = Xml;
+    FileName = 'C:\Temp\VehicleJournalLineImport.xml';
+    Direction = Import;
     schema
     {
-        textelement(VehicleJournalLine)
+        textelement(RootNodeName)
         {
             tableelement(KNHVehicleJournalLine; KNHVehicleJournalLine)
             {
                 fieldelement(Amount; KNHVehicleJournalLine.Amount)
                 {
-                    trigger OnBeforePassField()
-                    begin
-
-                    end;
                 }
                 fieldelement(CountryRegionCode; KNHVehicleJournalLine."Country/Region Code")
                 {
-                    trigger OnBeforePassField()
-                    begin
-
-                    end;
                 }
                 fieldelement(Description; KNHVehicleJournalLine.Description)
                 {
@@ -48,12 +43,25 @@ xmlport 51500 KNHVehicleJournalLine
                 }
                 fieldelement(JournalBatchName; KNHVehicleJournalLine."Journal Batch Name")
                 {
+                    //Runs after field value assigned and before it is validated and imported.
+                    trigger OnAfterAssignField()
+                    begin
+                        KNHVehicleJournalLine.Validate("Journal Batch Name", 'Test');
+                    end;
                 }
                 fieldelement(JournalTemplateName; KNHVehicleJournalLine."Journal Template Name")
                 {
+                    trigger OnAfterAssignField()
+                    begin
+                        KNHVehicleJournalLine.Validate("Journal Template Name", 'Test');
+                    end;
                 }
                 fieldelement(LineNo; KNHVehicleJournalLine."Line No.")
                 {
+                    trigger OnAfterAssignField()
+                    begin
+                        KNHVehicleJournalLine.Validate("Line No.", KNHVehicleJournalLine."Line No." + 10000);
+                    end;
                 }
                 fieldelement(PostingDate; KNHVehicleJournalLine."Posting Date")
                 {
@@ -106,35 +114,51 @@ xmlport 51500 KNHVehicleJournalLine
         {
             area(content)
             {
-                group(Journey)
+                group(Options)
                 {
+                    Caption = 'Options';
+                    field(PostingDate; PostingDateReq)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Posting Date';
+                        ToolTip = 'Specifies Posting Date for Import File';
+                    }
+                    field(FileName; FileName)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'File Name';
+                        ToolTip = 'Specifies path and name for import';
+                    }
                 }
             }
         }
+
         actions
         {
             area(processing)
             {
             }
         }
+
+        trigger OnOpenPage()
+        begin
+            if PostingDateReq = 0D then
+                PostingDateReq := WorkDate();
+        end;
     }
+
     trigger OnInitXmlPort()
     begin
     end;
 
     trigger OnPreXmlPort()
     begin
-        KNHXMLEvent();
     end;
 
     trigger OnPostXmlPort()
     begin
-
     end;
 
-    [IntegrationEvent(true, false)]
-    local procedure KNHXMLEvent()
-    begin
-
-    end;
+    var
+        PostingDateReq: Date;
 }

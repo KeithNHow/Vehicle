@@ -83,18 +83,38 @@ page 51502 "KNHVehicleJourneys"
     {
         area(navigation)
         {
-            action(Journey)
+            action(JnlLineExp)
             {
-                ApplicationArea = All;
+                ApplicationArea = Basic, Suite;
                 Caption = 'XML Export';
-                Image = CreateXMLFile;
+                Image = Export;
                 Promoted = true;
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = xmlport "KNHVehicleJournalLine";
+                ToolTip = 'XML file export of Vehicle Journal Line.';
                 ShortCutKey = 'Ctrl+F6';
-                ToolTip = 'XML export of Vehicle Journal Line.';
+                trigger OnAction();
+                begin
+                    Xmlport.Run(Xmlport::KNHVehicleJnlLineImp, true, false, Rec);
+                end;
+
+            }
+            action(JnlLineImp)
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Vehicle Journal Line Import';
+                Image = Import;
+                Promoted = true;
+                PromotedCategory = Category4;
+                PromotedIsBig = true;
+                PromotedOnly = true;
+                ToolTip = 'Xml file Import of Vehicle Journal Lines.';
+                ShortcutKey = 'Ctrl+F7';
+                trigger OnAction();
+                begin
+                    Xmlport.Run(Xmlport::KNHVehicleJnlLineImp, true, true);
+                end;
             }
         }
     }
