@@ -30,11 +30,15 @@ table 51502 "KNHVehicleModel"
         {
             Caption = 'Cost';
         }
+        field(6; "Vehicle Brand"; Code[10])
+        {
+            Caption = 'Vehicle Brand';
+        }
     }
 
     keys
     {
-        key(PK; Code)
+        key(PK; Code, "Vehicle Brand")
         {
             Clustered = true;
         }

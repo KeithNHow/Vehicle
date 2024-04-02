@@ -87,10 +87,11 @@ table 51503 "KNHVehicleJourney"
         key(PK; "Entry No.")
         {
             Clustered = true;
-        }
-        key(Key2; "Vehicle No.")
-        {
             SumIndexFields = Distance;
+        }
+        key(Key2; "Vehicle No.", "Posting Date")
+        {
+            SumIndexFields = Distance, "Entry No.";
         }
     }
     fieldgroups
@@ -102,4 +103,11 @@ table 51503 "KNHVehicleJourney"
         {
         }
     }
+    trigger OnInsert()
+    begin
+        if FindLast() then
+            "Entry No." := "Entry No." + 1
+        else
+            "Entry No." := 1;
+    end;
 }

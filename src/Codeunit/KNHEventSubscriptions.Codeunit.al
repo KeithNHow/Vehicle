@@ -62,21 +62,21 @@ codeunit 51500 "KNHEventSubscriptions"
         Message('I am Here!');
     end;
 
-    // Integration Event found in KNHVehicleMake table
+    // Integration Event found in KNHVehicleBrand table
     // Event = OnBeforeValidateCountry
     // DisplayBeforeValidateCountry procedure contains two parameters - KNHVehicleMake and IsHandled
-    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleMake", 'OnBeforeValidateCountry', '', true, true)]
-    local procedure DisplayBeforeValidateCountry(var KNHVehicleMake: Record "KNHVehicleMake"; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleBrand", 'OnBeforeValidateCountry', '', true, true)]
+    local procedure DisplayBeforeValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand"; var IsHandled: Boolean)
     begin
         IsHandled := true;
         Message('Some sort of task is carried out here.');
     end;
 
-    // Integration Event found in KNHVehicleMake table
+    // Integration Event found in KNHVehicleBrand table
     // Event = OnAfterValidateCountry
     // DisplayAfterValidateCountry procedure contains one parameter - KNHVehicleMake
-    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleMake", 'OnAfterValidateCountry', '', true, true)]
-    local procedure DisplayAfterValidateCountry(var KNHVehicleMake: Record "KNHVehicleMake")
+    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleBrand", 'OnAfterValidateCountry', '', true, true)]
+    local procedure DisplayAfterValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand")
     begin
         Message('Validate which continent country belongs to.');
     end;

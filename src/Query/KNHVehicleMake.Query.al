@@ -8,7 +8,7 @@ query 51502 "KNHVehicleMake"
 
     elements
     {
-        dataitem(KNHVehicleMake; "KNHVehicleMake")
+        dataitem(KNHVehicleMake; "KNHVehicleBrand")
         {
             column("Code"; "Code")
             {

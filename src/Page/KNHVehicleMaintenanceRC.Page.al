@@ -1,7 +1,7 @@
 /// <summary>
 /// Page KNH Vehicle Maintenance RC (ID 51508).
 /// </summary>
-page 51508 "KNHVehicleMaintenanceRC"
+page 51508 KNHVehicleMaintenanceRC
 {
     Caption = 'Vehicle Maintenance RC';
     PageType = RoleCenter;
@@ -10,11 +10,11 @@ page 51508 "KNHVehicleMaintenanceRC"
     {
         area(rolecenter)
         {
-            part(Control104; "KNHHeadlineRCVehicles")
+            part(Control104; KNHHeadlineRCVehicles)
             {
                 ApplicationArea = All;
             }
-            part(Control1901851508; "KNHVehicleActivities")
+            part(Control1901851508; KNHVehicleActivities)
             {
                 ApplicationArea = All;
             }
@@ -35,25 +35,25 @@ page 51508 "KNHVehicleMaintenanceRC"
                 {
                     ApplicationArea = All;
                     Caption = 'Vehicle List';
-                    RunObject = page "KNHVehicleList";
+                    RunObject = page KNHVehicleList;
                 }
                 action(Journeys)
                 {
                     ApplicationArea = All;
                     Caption = 'Vehicle Details';
-                    RunObject = page "KNHVehicleJourneys";
+                    RunObject = page KNHVehicleJourneys;
                 }
-                action(Make)
+                action(Brand)
                 {
                     ApplicationArea = All;
-                    Caption = 'Vehicle Make';
-                    RunObject = page "KNHVehicleMake";
+                    Caption = 'Vehicle Brand';
+                    RunObject = page KNHVehicleBrand;
                 }
                 action(Model)
                 {
                     ApplicationArea = All;
                     Caption = 'Vehicle Model';
-                    RunObject = page "KNHVehicleMake";
+                    RunObject = page KNHVehicleBrand;
                 }
             }
         }

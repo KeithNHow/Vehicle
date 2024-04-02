@@ -50,7 +50,7 @@ table 51507 "KNHVehicleJournalLine"
         {
             Caption = 'Source No.';
             Editable = false;
-            TableRelation = IF ("Source Type" = const(Customer)) Customer
+            TableRelation = if ("Source Type" = const(Customer)) Customer
             else
             if ("Source Type" = const(Vendor)) Vendor
             else
