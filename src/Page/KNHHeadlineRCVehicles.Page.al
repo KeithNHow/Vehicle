@@ -51,7 +51,6 @@ page 51509 "KNHHeadlineRCVehicles"
 
     var
         RCHeadlinesPageCommon: Codeunit "RC Headlines Page Common";
-        [InDataSet]
         UserGreetingVisible: Boolean;
         DefaultFieldsVisible: Boolean;
 }

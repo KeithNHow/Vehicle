@@ -132,17 +132,16 @@ codeunit 51500 "KNHEventSubscriptions"
     // DisplayRMessage procedure contains one parameter - IsHandled
     // Subs Parameters: ObjectType, ObjName, EventName, EventElement, SkipOnMissLic, SkipOnMissPerm
     [Eventsubscriber(ObjectType::Report, Report::KNHVehicleJourney, 'MyReportEvent', '', true, true)]
-    local procedure DisplayRMessage(var IsHandled: Boolean)
+    local procedure HandleMyReportEvent(var IsHandled: Boolean)
     begin
-        Message('I am Here!');
         IsHandled := true;
     end;
 
     // Integration Event found in Customer Card page
     // Event = OnAddrLineChanged
-    // CheckCustCardAddrLine procedure contains one parameter - Line
+    // ChkCustCardAddrLineChanged procedure contains one parameter - Line
     [EventSubscriber(ObjectType::Page, Page::"Customer Card", 'OnAddrLineChanged', '', true, true)]
-    local procedure CheckCustCardAddrLine(Line: Text[100]);
+    local procedure ChkCustCardAddrLineChanged(Line: Text[100]);
     begin
         if (StrPos(Line, '+') > 0) then
             Message('Can''t use a plus sign (+) in the address [' + Line + ']');
@@ -151,8 +150,8 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHEventPublications codeunit
     // Event = OnAddressLineChanged
     // DisplayXMLEventMessage procedure contains no parameters
-    [EventSubscriber(ObjectType::XmlPort, XMLPort::"KNHVehicleJnlLineExp", 'KNHXMLEvent', '', true, true)]
-    local procedure DisplayXMLEventMessage()
+    [EventSubscriber(ObjectType::XmlPort, XMLPort::"KNHVehicleJnlLineExp", 'MyXmlPortEvent', '', true, true)]
+    local procedure MessageMyXmlPortEvent()
     begin
         Message('I am Here!');
     end;

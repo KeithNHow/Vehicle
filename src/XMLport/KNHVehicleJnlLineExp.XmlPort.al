@@ -165,7 +165,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
         KNHVehicleJournalLine.SetRange("Journal Batch Name", 'Default');
         RecordCount := KNHVehicleJournalLine.Count();
 
-        KNHXMLEvent();
+        MyXmlPortEvent();
     end;
 
     trigger OnPostXmlPort()
@@ -173,7 +173,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
     end;
 
     [IntegrationEvent(true, false)]
-    local procedure KNHXMLEvent()
+    local procedure MyXmlPortEvent()
     begin
     end;
 

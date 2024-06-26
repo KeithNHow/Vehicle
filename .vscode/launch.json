@@ -2,22 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Keith-Notebook",
+            "name": "GenDevelopment",
             "request": "launch",
             "type": "al",
-            "environmentType": "OnPrem",
-            "server": "http://Localhost:8080/BC200/",
-            "serverInstance": "BC200",
-            "authentication": "Windows",
-            "startupObjectId": 51508,
+            "environmentType": "Sandbox",
+            "environmentName": "Sandbox",
+            "startupObjectId": 2500,
             "startupObjectType": "Page",
-            "port": 7049,
-            "breakOnError": true,
+            "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
-            "enableSqlInformationDebugger": true,
-            "tenant": "default",
-            "schemaUpdateMode": "ForceSync"
+            "enableSqlInformationDebugger": true
         }
     ]
 }
