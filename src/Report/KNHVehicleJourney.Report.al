@@ -70,7 +70,7 @@ report 51500 "KNHVehicleJourney"
         B: Integer;
     begin
         IsHandled := false;
-        MyReportEvent(IsHandled);
+        this.MyReportEvent(IsHandled);
         if not IsHandled then begin
             A := 1;
             B := 2;

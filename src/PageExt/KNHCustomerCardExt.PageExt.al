@@ -9,7 +9,7 @@ pageextension 51500 "KNHCustomerCardExt" extends "Customer Card"
         {
             trigger OnBeforeValidate();
             begin
-                OnAddrLineChanged(Rec.Address);
+                this.OnAddrLineChanged(Rec.Address);
             end;
         }
     }

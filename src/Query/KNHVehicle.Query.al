@@ -67,7 +67,7 @@ query 51500 "KNHVehicle"
 
     trigger OnBeforeOpen()
     begin
-        MyQueryEvent();
+        this.MyQueryEvent();
     end;
 
     [IntegrationEvent(true, false)]

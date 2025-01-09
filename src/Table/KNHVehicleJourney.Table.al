@@ -105,7 +105,7 @@ table 51503 "KNHVehicleJourney"
     }
     trigger OnInsert()
     begin
-        if FindLast() then
+        if this.FindLast() then
             "Entry No." := "Entry No." + 1
         else
             "Entry No." := 1;

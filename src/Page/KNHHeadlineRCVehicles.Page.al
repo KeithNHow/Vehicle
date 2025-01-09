@@ -15,7 +15,7 @@ page 51509 "KNHHeadlineRCVehicles"
             {
                 ShowCaption = false;
                 Visible = UserGreetingVisible;
-                field(GreetingText; RCHeadlinesPageCommon.GetGreetingText())
+                field(GreetingText; this.RCHeadlinesPageCommon.GetGreetingText())
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Greeting headline';
@@ -26,7 +26,7 @@ page 51509 "KNHHeadlineRCVehicles"
             {
                 ShowCaption = false;
                 Visible = DefaultFieldsVisible;
-                field(DocumentationText; RCHeadlinesPageCommon.GetDocumentationText())
+                field(DocumentationText; this.RCHeadlinesPageCommon.GetDocumentationText())
                 {
                     ApplicationArea = Basic, Suite;
                     Caption = 'Documentation headline';
@@ -35,7 +35,7 @@ page 51509 "KNHHeadlineRCVehicles"
 
                     trigger OnDrillDown()
                     begin
-                        HyperLink(RCHeadlinesPageCommon.DocumentationUrlTxt());
+                        HyperLink(this.RCHeadlinesPageCommon.DocumentationUrlTxt());
                     end;
                 }
             }
@@ -44,9 +44,9 @@ page 51509 "KNHHeadlineRCVehicles"
 
     trigger OnOpenPage()
     begin
-        RCHeadlinesPageCommon.HeadlineOnOpenPage(Page::"Headline RC Order Processor");
-        DefaultFieldsVisible := RCHeadlinesPageCommon.AreDefaultFieldsVisible();
-        UserGreetingVisible := RCHeadlinesPageCommon.IsUserGreetingVisible();
+        this.RCHeadlinesPageCommon.HeadlineOnOpenPage(Page::"Headline RC Order Processor");
+        this.DefaultFieldsVisible := this.RCHeadlinesPageCommon.AreDefaultFieldsVisible();
+        this.UserGreetingVisible := this.RCHeadlinesPageCommon.IsUserGreetingVisible();
     end;
 
     var

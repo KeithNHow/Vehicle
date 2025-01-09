@@ -60,20 +60,20 @@ report 51501 "KNHVehicleBalance"
 
         trigger OnOpenPage()
         begin
-            InitLogInteraction();
+            //this.InitLogInteraction();
             LogInteractionEnable := LogInteract;
         end;
     }
 
     trigger OnInitReport()
     begin
-        CompanyInformation.SetAutoCalcFields(Picture);
-        CompanyInformation.Get();
+        this.CompanyInformation.SetAutoCalcFields(Picture);
+        this.CompanyInformation.Get();
     end;
 
     trigger OnPostReport()
     begin
-        if LogInteract and not CurrReport.Preview then
+        if this.LogInteract and not CurrReport.Preview then
             if Vehicle.FindSet() then
                 repeat
                     if Vehicle."No." <> '' then;
@@ -85,17 +85,17 @@ report 51501 "KNHVehicleBalance"
     trigger OnPreReport()
     begin
         if not CurrReport.UseRequestPage then
-            InitLogInteraction();
+            this.InitLogInteraction();
     end;
 
     var
         CompanyInformation: Record "Company Information";
-        SegManagement: Codeunit SegManagement;
+        //SegManagement: Codeunit SegManagement;
         LogInteract: Boolean;
         LogInteractionEnable: Boolean;
 
     local procedure InitLogInteraction()
     begin
-        LogInteract := SegManagement.FindInteractTmplCode(4) <> '';
+        //LogInteract := SegManagement.FindInteractTmplCode(4) <> '';
     end;
 }

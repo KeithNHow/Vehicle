@@ -23,6 +23,19 @@
     {
         "generateReportLayout": true
     },
+    "alOutline.codeCleanupActions": [
+        "AddToolTips",
+        "FixKeywordsCase",
+        "FixIdentifiersCase",
+        "SortVariables",
+        "AddApplicationAreas",
+        "SortTableFields",
+        "AddMissingParentheses",
+        "RemoveBeginEnd",
+        "RemoveUnusedVariables"
+    ],
+
+    "workbench.editor.enablePreview": true,
 
     "CRS.ObjectNamePrefix": "KNH",
     "CRS.DisableDefaultAlSnippets": false,
@@ -30,4 +43,9 @@
     "CRS.FileNamePattern": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectName>.<ObjectTypeShortPascalCase>.al",
+    
+    "github.copilot.chat.scopeSelection": true,
+    "github.copilot.advanced": {
+    "authProvider": "github",
+    }
 }

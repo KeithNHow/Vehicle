@@ -39,9 +39,9 @@ table 51505 "KNHVehicleJournalTemplate"
 
             trigger OnValidate()
             begin
-                KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
-                KNHVehicleJournalLine.ModifyAll("Source Code", "Source Code");
-                Modify();
+                this.KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
+                this.KNHVehicleJournalLine.ModifyAll("Source Code", "Source Code");
+                this.Modify();
             end;
         }
         field(11; "Reason Code"; Code[10])
@@ -83,7 +83,7 @@ table 51505 "KNHVehicleJournalTemplate"
             trigger OnValidate()
             begin
                 if ("Posting No. Series" = "No. Series") and ("Posting No. Series" <> '') then
-                    FieldError("Posting No. Series", StrSubstNo(PostTxt, "Posting No. Series"));
+                    this.FieldError("Posting No. Series", StrSubstNo(this.PostTxt, "Posting No. Series"));
             end;
         }
         field(30; "Increment Batch Name"; Boolean)
@@ -109,10 +109,10 @@ table 51505 "KNHVehicleJournalTemplate"
 
     trigger OnDelete()
     begin
-        KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
-        KNHVehicleJournalLine.DeleteAll(true);
-        KNHVehicleJournalBatch.SetRange("Journal Template Name", Name);
-        KNHVehicleJournalBatch.DeleteAll();
+        this.KNHVehicleJournalLine.SetRange("Journal Template Name", Name);
+        this.KNHVehicleJournalLine.DeleteAll(true);
+        this.KNHVehicleJournalBatch.SetRange("Journal Template Name", Name);
+        this.KNHVehicleJournalBatch.DeleteAll();
     end;
 
     var

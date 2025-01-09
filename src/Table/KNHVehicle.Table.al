@@ -18,7 +18,7 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                TestNoSeries();
+                this.TestNoSeries();
             end;
         }
         field(2; "Make Code"; Code[10])
@@ -40,9 +40,9 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                OnBeforeValidateRegistrationNo(Rec, xRec);
-                Testfield("Registration No.");
-                OnAfterValidateRegistrationNo(Rec, xRec);
+                this.OnBeforeValidateRegistrationNo(Rec, xRec);
+                this.Testfield("Registration No.");
+                this.OnAfterValidateRegistrationNo(Rec, xRec);
             end;
         }
         field(5; "Registration Date"; Date)
@@ -95,7 +95,7 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(1, "Global Dimension 1 Code");
+                this.ValidateShortcutDimCode(1, "Global Dimension 1 Code");
             end;
         }
         field(14; "Global Dimension 2 Code"; Code[20])
@@ -107,7 +107,7 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(2, "Global Dimension 2 Code");
+                this.ValidateShortcutDimCode(2, "Global Dimension 2 Code");
             end;
         }
         field(15; Image; Media)
@@ -184,11 +184,11 @@ table 51500 "KNHVehicle"
 
     trigger OnInsert()
     begin
-        InitVehicleNo();
-        CuDimensionManagement.UpdateDefaultDim(Database::"KNHVehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
+        this.InitVehicleNo();
+        this.CuDimensionManagement.UpdateDefaultDim(Database::"KNHVehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
         Message(Format("No."));
 
-        OnAfterOnInsert(Rec, xRec);
+        this.OnAfterOnInsert(Rec, xRec);
     end;
 
     local procedure TestNoSeries()
@@ -201,8 +201,8 @@ table 51500 "KNHVehicle"
             exit;
 
         if "No." <> xRec."No." then begin
-            KNHVehicleSetup.Get();
-            NoSeriesManagement.TestManual(KNHVehicleSetup."Vehicle Nos.");
+            this.KNHVehicleSetup.Get();
+            this.NoSeries.TestManual(this.KNHVehicleSetup."Vehicle Nos.");
             "No. Series" := '';
         end;
     end;
@@ -217,9 +217,9 @@ table 51500 "KNHVehicle"
             exit;
 
         if "No." = '' then begin
-            KNHVehicleSetup.Get();
-            KNHVehicleSetup.TestField("Vehicle Nos.");
-            NoSeriesManagement.InitSeries(KNHVehicleSetup."Vehicle Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+            this.KNHVehicleSetup.Get();
+            this.KNHVehicleSetup.TestField("Vehicle Nos.");
+            this.NoSeries.GetNextNo(this.KNHVehicleSetup."Vehicle Nos.");
         end;
     end;
 
@@ -233,12 +233,12 @@ table 51500 "KNHVehicle"
         KNHVehicle: Record "KNHVehicle";
     begin
         KNHVehicle := Rec;
-        KNHVehicleSetup.Get();
-        KNHVehicleSetup.TestField("Vehicle Nos.");
-        if NoSeriesManagement.SelectSeries(KNHVehicleSetup."Vehicle Nos.", OldKNHVehicle."No. Series", KNHVehicleSetup."Vehicle Nos.") then begin
-            NoSeriesManagement.SetSeries("No.");
+        this.KNHVehicleSetup.Get();
+        this.KNHVehicleSetup.TestField("Vehicle Nos.");
+        if this.NoSeries.LookupRelatedNoSeries(KNHVehicleSetup."Vehicle Nos.", "No. Series", "No. Series") then begin
+            "No." := this.NoSeries.GetNextNo("No. Series");
             Rec := KNHVehicle;
-            //OnAssistEditOnBeforeExit(Cust);
+            OnAssistEditOnBeforeExit(KNHVehicle);
             exit(true);
         end;
     end;
@@ -257,9 +257,9 @@ table 51500 "KNHVehicle"
         if IsHandled then
             exit;
 
-        CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
-        if not IsTemporary then begin
-            CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
+        this.CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
+        if not this.IsTemporary then begin
+            this.CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
             Rec.Modify();
         end;
 
@@ -268,7 +268,7 @@ table 51500 "KNHVehicle"
 
     var
         KNHVehicleSetup: Record "KNHVehicleSetup";
-        NoSeriesManagement: Codeunit NoSeriesManagement;
+        NoSeries: Codeunit "No. Series";
         CuDimensionManagement: Codeunit DimensionManagement;
 
     [IntegrationEvent(false, false)]
@@ -283,6 +283,11 @@ table 51500 "KNHVehicle"
 
     [IntegrationEvent(false, false)]
     local procedure OnAfterOnInsert(var KNHVehicle: Record KNHVehicle; xKNHVehicle: Record KNHVehicle)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAssistEditOnBeforeExit(var KNHVehicle: Record KNHVehicle)
     begin
     end;
 }

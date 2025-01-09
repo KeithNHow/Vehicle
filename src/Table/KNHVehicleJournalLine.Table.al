@@ -34,8 +34,8 @@ table 51507 "KNHVehicleJournalLine"
 
             trigger OnValidate()
             begin
-                TestField("Posting Date");
-                Validate("Document Date", "Posting Date");
+                this.TestField("Posting Date");
+                this.Validate("Document Date", "Posting Date");
             end;
         }
         field(5; "Entry Type"; Enum "Item Ledger Entry Type")

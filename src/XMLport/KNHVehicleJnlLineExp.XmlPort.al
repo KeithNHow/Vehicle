@@ -29,7 +29,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
                 {
                     trigger OnBeforePassVariable()
                     begin
-                        PymtRecordCount := Format(RecordCount);
+                        PymtRecordCount := Format(this.RecordCount);
                     end;
                 }
                 fieldelement(Amount; KNHVehicleJournalLine.Amount)
@@ -163,9 +163,9 @@ xmlport 51500 "KNHVehicleJnlLineExp"
     begin
         KNHVehicleJournalLine.SetRange("Journal Template Name", 'Default');
         KNHVehicleJournalLine.SetRange("Journal Batch Name", 'Default');
-        RecordCount := KNHVehicleJournalLine.Count();
+        this.RecordCount := KNHVehicleJournalLine.Count();
 
-        MyXmlPortEvent();
+        this.MyXmlPortEvent();
     end;
 
     trigger OnPostXmlPort()

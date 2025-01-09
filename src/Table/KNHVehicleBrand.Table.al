@@ -31,9 +31,9 @@ table 51501 "KNHVehicleBrand"
             var
                 IsHandled: Boolean;
             begin
-                OnBeforeValidateCountry(xRec, IsHandled);
+                this.OnBeforeValidateCountry(xRec, IsHandled);
                 Message('Validation Code');
-                OnAfterValidateCountry(Rec);
+                this.OnAfterValidateCountry(Rec);
             end;
         }
     }

@@ -32,10 +32,10 @@ table 51506 "KNHVehicleJournalBatch"
             trigger OnValidate()
             begin
                 if "Reason Code" <> xRec."Reason Code" then begin
-                    ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
-                    ItemJournalLine.SetRange("Journal Batch Name", Name);
-                    ItemJournalLine.ModifyAll("Reason Code", "Reason Code");
-                    Modify();
+                    this.ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+                    this.ItemJournalLine.SetRange("Journal Batch Name", Name);
+                    this.ItemJournalLine.ModifyAll("Reason Code", "Reason Code");
+                    this.Modify();
                 end;
             end;
         }
@@ -47,13 +47,13 @@ table 51506 "KNHVehicleJournalBatch"
             trigger OnValidate()
             begin
                 if "No. Series" <> '' then begin
-                    ItemJournalTemplate.Get("Journal Template Name");
-                    if ItemJournalTemplate.Recurring then
+                    this.ItemJournalTemplate.Get("Journal Template Name");
+                    if this.ItemJournalTemplate.Recurring then
                         Error(
-                          RecurringJnlTxt,
-                          FieldCaption("Posting No. Series"));
+                          this.RecurringJnlTxt,
+                          this.FieldCaption("Posting No. Series"));
                     if "No. Series" = "Posting No. Series" then
-                        Validate("Posting No. Series", '');
+                        this.Validate("Posting No. Series", '');
                 end;
             end;
         }
@@ -65,11 +65,11 @@ table 51506 "KNHVehicleJournalBatch"
             trigger OnValidate()
             begin
                 if ("Posting No. Series" = "No. Series") and ("Posting No. Series" <> '') then
-                    FieldError("Posting No. Series", StrSubstNo(PostingNoTxt, "Posting No. Series"));
-                ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
-                ItemJournalLine.SetRange("Journal Batch Name", Name);
-                ItemJournalLine.ModifyAll("Posting No. Series", "Posting No. Series");
-                Modify();
+                    this.FieldError("Posting No. Series", StrSubstNo(this.PostingNoTxt, "Posting No. Series"));
+                this.ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+                this.ItemJournalLine.SetRange("Journal Batch Name", Name);
+                this.ItemJournalLine.ModifyAll("Posting No. Series", "Posting No. Series");
+                this.Modify();
             end;
         }
         field(21; "Template Type"; Enum "Item Journal Template Type")
@@ -95,23 +95,23 @@ table 51506 "KNHVehicleJournalBatch"
 
     trigger OnDelete()
     begin
-        ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
-        ItemJournalLine.SetRange("Journal Batch Name", Name);
-        ItemJournalLine.DeleteAll(true);
+        this.ItemJournalLine.SetRange("Journal Template Name", "Journal Template Name");
+        this.ItemJournalLine.SetRange("Journal Batch Name", Name);
+        this.ItemJournalLine.DeleteAll(true);
     end;
 
     trigger OnInsert()
     begin
-        LockTable();
-        ItemJournalTemplate.Get("Journal Template Name");
+        this.LockTable();
+        this.ItemJournalTemplate.Get("Journal Template Name");
     end;
 
     trigger OnRename()
     begin
-        ItemJournalLine.SetRange("Journal Template Name", xRec."Journal Template Name");
-        ItemJournalLine.SetRange("Journal Batch Name", xRec.Name);
-        while ItemJournalLine.FindFirst() do
-            ItemJournalLine.Rename("Journal Template Name", Name, ItemJournalLine."Line No.");
+        this.ItemJournalLine.SetRange("Journal Template Name", xRec."Journal Template Name");
+        this.ItemJournalLine.SetRange("Journal Batch Name", xRec.Name);
+        while this.ItemJournalLine.FindFirst() do
+            this.ItemJournalLine.Rename("Journal Template Name", Name, this.ItemJournalLine."Line No.");
     end;
 
     var
@@ -125,9 +125,9 @@ table 51506 "KNHVehicleJournalBatch"
     /// </summary>
     procedure SetupNewBatch()
     begin
-        ItemJournalTemplate.Get("Journal Template Name");
-        "No. Series" := ItemJournalTemplate."No. Series";
-        "Posting No. Series" := ItemJournalTemplate."Posting No. Series";
-        "Reason Code" := ItemJournalTemplate."Reason Code";
+        this.ItemJournalTemplate.Get("Journal Template Name");
+        "No. Series" := this.ItemJournalTemplate."No. Series";
+        "Posting No. Series" := this.ItemJournalTemplate."Posting No. Series";
+        "Reason Code" := this.ItemJournalTemplate."Reason Code";
     end;
 }
