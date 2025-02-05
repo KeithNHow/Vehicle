@@ -15,6 +15,7 @@ table 51500 "KNHVehicle"
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
+            ToolTip = 'Specifies the value of the No. field.';
 
             trigger OnValidate()
             begin
@@ -24,6 +25,7 @@ table 51500 "KNHVehicle"
         field(2; "Make Code"; Code[10])
         {
             Caption = 'Make';
+            ToolTip = 'Specifies the value of the Make Code field.';
             FieldClass = FlowField;
             CalcFormula = lookup("KNHVehicleBrand".Code where(Code = field("Make Code")));
         }
@@ -128,35 +130,29 @@ table 51500 "KNHVehicle"
             Caption = 'Date Filter';
             FieldClass = FlowFilter;
         }
-        field(23; "Vehicle Mileage"; Integer)
+        field(23; "Total Vehicle Mileage"; Integer)
         {
             Caption = 'Vehicle Mileage';
             FieldClass = FlowField;
             CalcFormula = sum(KNHVehicleJourney.Distance where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
         }
-        field(24; "Last Vehicle Journey"; Integer)
+        field(24; "Average Vehicle Journey"; Integer)
         {
-            Caption = 'Vehicle Mileage';
+            Caption = 'Average Vehicle Journey';
             FieldClass = FlowField;
-            CalcFormula = max(KNHVehicleJourney."Entry No." where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
+            CalcFormula = average(KNHVehicleJourney.Distance where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
         }
         field(25; "Number of Vehicle Journeys"; Integer)
         {
-            Caption = 'Vehicle Mileage';
+            Caption = 'Number of Vehicle Journeys';
             FieldClass = FlowField;
             CalcFormula = count(KNHVehicleJourney where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
         }
-        field(26; "My Vehicle Journey"; Text[100])
+        field(26; "First Vehicle Journey"; Text[100])
         {
-            Caption = 'Vehicle Mileage';
+            Caption = 'First Vehicle Journey';
             FieldClass = FlowField;
             CalcFormula = lookup(KNHVehicleJourney.Description where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2")));
-        }
-        field(27; "Last Vehicle Journey Name"; Text[100])
-        {
-            Caption = 'Vehicle Mileage';
-            FieldClass = FlowField;
-            CalcFormula = lookup(KNHVehicleJourney.Description where("Vehicle No." = field("No."), "Posting Date" = field("Date Filter 2"), "Entry No." = field("Last vehicle Journey")));
         }
     }
 

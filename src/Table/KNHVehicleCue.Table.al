@@ -31,7 +31,7 @@ table 51508 "KNHVehicleCue"
             Caption = 'Vehicle Mileage';
             Editable = false;
             FieldClass = FlowField;
-            CalcFormula = sum("KNHVehicle"."Vehicle Mileage" where("Vehicle Mileage" = filter(<> 0)));
+            CalcFormula = sum("KNHVehicle"."Total Vehicle Mileage" where("Total Vehicle Mileage" = filter(<> 0)));
         }
     }
     keys

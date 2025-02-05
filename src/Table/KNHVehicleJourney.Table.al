@@ -91,7 +91,7 @@ table 51503 "KNHVehicleJourney"
         }
         key(Key2; "Vehicle No.", "Posting Date")
         {
-            SumIndexFields = Distance, "Entry No.";
+            SumIndexFields = Distance;
         }
     }
     fieldgroups

@@ -20,7 +20,7 @@ page 51505 "KNHVehicleBalances"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the vehicle when it was new.';
                 }
-                field("Vehicle Mileage"; Rec."Vehicle Mileage")
+                field("Total Vehicle Mileage"; Rec."Total Vehicle Mileage")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Vehicle Mileage field.';
