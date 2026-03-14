@@ -1,7 +1,7 @@
 /// <summary>
 /// XmlPort "KNH Vehicle Journal Line Import" (ID 51501).
 /// </summary>
-xmlport 51501 "KNHVehicleJnlLineImp"
+xmlport 51501 KNHVehicleJnlLineImp
 {
     Caption = 'Vehicle Journal Line Import';
     Encoding = UTF8;
@@ -112,7 +112,7 @@ xmlport 51501 "KNHVehicleJnlLineImp"
     {
         layout
         {
-            area(content)
+            area(Content)
             {
                 group(Options)
                 {
@@ -123,7 +123,7 @@ xmlport 51501 "KNHVehicleJnlLineImp"
                         Caption = 'Posting Date';
                         ToolTip = 'Specifies Posting Date for Import File';
                     }
-                    field(FileName; FileName)
+                    field(FileName; Filename)
                     {
                         ApplicationArea = Basic, Suite;
                         Caption = 'File Name';
@@ -135,7 +135,7 @@ xmlport 51501 "KNHVehicleJnlLineImp"
 
         actions
         {
-            area(processing)
+            area(Processing)
             {
             }
         }

@@ -1,12 +1,13 @@
 /// <summary>
 /// Table KNH Vehicle Model (ID 51502)
 /// </summary>
-table 51502 "KNHVehicleModel"
+table 51502 KNHVehicleModel
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Model';
     DataCaptionFields = "Code", Description;
     //LookupPageID = "KNH Vehicle Model";
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -22,7 +23,7 @@ table 51502 "KNHVehicleModel"
         {
             Caption = 'Power (cc)';
         }
-        field(4; FuelType; Enum "KNHVehicleFuelType")
+        field(4; FuelType; Enum KNHVehicleFuelType)
         {
             Caption = 'Fuel Type';
         }

@@ -1,7 +1,7 @@
 /// <summary>
 /// PermSet KNH Vehicle (ID 51500).
 /// </summary>
-permissionset 51500 "KNHVehicle"
+permissionset 51500 KNHVehicle
 {
     Assignable = true;
     Caption = 'KNH Vehicle', MaxLength = 30;
@@ -24,7 +24,7 @@ permissionset 51500 "KNHVehicle"
         table KNHVehicleJournalLine = X,
         tabledata KNHVehicleJournalLine = RMID,
         table KNHVehicleCue = X,
-        tableData KNHVehicleCue = RMID,
+        tabledata KNHVehicleCue = RMID,
         page KNHVehicleCard = X,
         page KNHVehicleList = X,
         page KNHVehicleJourneys = X,

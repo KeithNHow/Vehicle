@@ -1,17 +1,17 @@
 /// <summary>
 /// Page KNH Vehicle Journal Template (ID 51504).
 /// </summary>
-page 51504 "KNHVehicleJournalTemplate"
+page 51504 KNHVehicleJournalTemplate
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journal Template';
     PageType = List;
-    SourceTable = "KNHVehicleJournalTemplate";
+    SourceTable = KNHVehicleJournalTemplate;
     UsageCategory = Documents;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(General)
             {

@@ -1,7 +1,7 @@
 /// <summary>
 /// Query KNH Vehicle Journey Count (ID 51501).
 /// </summary>
-query 51501 "KNHVehicleJourneyCount"
+query 51501 KNHVehicleJourneyCount
 {
     Caption = 'Vehicle Journey Count';
     QueryType = Normal;
@@ -9,7 +9,7 @@ query 51501 "KNHVehicleJourneyCount"
 
     elements
     {
-        dataitem(KNHVehicleJourney; "KNHVehicleJourney")
+        dataitem(KNHVehicleJourney; KNHVehicleJourney)
         {
             column(VehicleNo; "Vehicle No.")
             {

@@ -1,13 +1,14 @@
 /// <summary>
 /// This table contains information about vehicles.
 /// </summary>
-table 51500 "KNHVehicle"
+table 51500 KNHVehicle
 {
     Caption = 'Vehicle';
     DataClassification = ToBeClassified;
     DataCaptionFields = "No.", "Registration No.";
-    LookupPageID = "KNHVehicleList";
-    DrillDownPageID = "KNHVehicleList";
+    LookupPageId = KNHVehicleList;
+    DrillDownPageId = KNHVehicleList;
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -27,13 +28,13 @@ table 51500 "KNHVehicle"
             Caption = 'Make';
             ToolTip = 'Specifies the value of the Make Code field.';
             FieldClass = FlowField;
-            CalcFormula = lookup("KNHVehicleBrand".Code where(Code = field("Make Code")));
+            CalcFormula = lookup(KNHVehicleBrand.Code where(Code = field("Make Code")));
         }
         field(3; "Model Code"; Code[10])
         {
             Caption = 'Model';
             FieldClass = FlowField;
-            CalcFormula = lookup("KNHVehicleModel".Code where(Code = field("Model Code"), "Vehicle Brand" = field("Make Code")));
+            CalcFormula = lookup(KNHVehicleModel.Code where(Code = field("Model Code"), "Vehicle Brand" = field("Make Code")));
         }
         field(4; "Registration No."; Code[10])
         {
@@ -43,7 +44,7 @@ table 51500 "KNHVehicle"
             trigger OnValidate()
             begin
                 this.OnBeforeValidateRegistrationNo(Rec, xRec);
-                this.Testfield("Registration No.");
+                this.TestField("Registration No.");
                 this.OnAfterValidateRegistrationNo(Rec, xRec);
             end;
         }
@@ -72,7 +73,7 @@ table 51500 "KNHVehicle"
             Caption = 'Engine Plate No.';
             DataClassification = CustomerContent;
         }
-        field(10; "Fuel Type"; Enum "KNHVehicleFuelType")
+        field(10; "Fuel Type"; Enum KNHVehicleFuelType)
         {
             Caption = 'Engine Plate No.';
             DataClassification = CustomerContent;
@@ -81,7 +82,7 @@ table 51500 "KNHVehicle"
         {
             Caption = 'New Cost';
             DataClassification = CustomerContent;
-            TableRelation = "KNHVehicleModel".Code; //FK lookup
+            TableRelation = KNHVehicleModel.Code; //FK lookup
         }
         field(12; "No. Series"; Code[20])
         {
@@ -97,7 +98,7 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                //this.ValidateShortcutDimCode(1, "Global Dimension 1 Code");
+                this.ValidateShortcutDimCode(1, "Global Dimension 1 Code");
             end;
         }
         field(14; "Global Dimension 2 Code"; Code[20])
@@ -109,7 +110,7 @@ table 51500 "KNHVehicle"
 
             trigger OnValidate()
             begin
-                //this.ValidateShortcutDimCode(2, "Global Dimension 2 Code");
+                this.ValidateShortcutDimCode(2, "Global Dimension 2 Code");
             end;
         }
         field(15; Image; Media)
@@ -181,7 +182,7 @@ table 51500 "KNHVehicle"
     trigger OnInsert()
     begin
         this.InitVehicleNo();
-        //this.CuDimensionManagement.UpdateDefaultDim(Database::"KNHVehicle", "No.", "Global Dimension 1 Code", "Global Dimension 2 Code");
+
         Message(Format("No."));
 
         this.OnAfterOnInsert(Rec, xRec);
@@ -192,7 +193,7 @@ table 51500 "KNHVehicle"
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        //OnBeforeTestNoSeries(Rec, xRec, IsHandled);
+
         if IsHandled then
             exit;
 
@@ -208,7 +209,7 @@ table 51500 "KNHVehicle"
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        //OnBeforeInitVehicleNo(Rec, xRec, IsHandled);
+
         if IsHandled then
             exit;
 
@@ -219,9 +220,9 @@ table 51500 "KNHVehicle"
         end;
     end;
 
-    procedure AssistEdit(OldKNHVehicle: Record "KNHVehicle"): Boolean
+    procedure AssistEdit(OldKNHVehicle: Record KNHVehicle): Boolean
     var
-        KNHVehicle: Record "KNHVehicle";
+        KNHVehicle: Record KNHVehicle;
     begin
         KNHVehicle := Rec;
         this.KNHVehicleSetup.Get();
@@ -229,7 +230,7 @@ table 51500 "KNHVehicle"
         if this.NoSeries.LookupRelatedNoSeries(KNHVehicleSetup."Vehicle Nos.", "No. Series", "No. Series") then begin
             "No." := this.NoSeries.GetNextNo("No. Series");
             Rec := KNHVehicle;
-            OnAssistEditOnBeforeExit(KNHVehicle);
+            this.OnAssistEditOnBeforeExit(KNHVehicle);
             exit(true);
         end;
     end;
@@ -239,31 +240,25 @@ table 51500 "KNHVehicle"
         IsHandled: Boolean;
     begin
         IsHandled := false;
-        //OnBeforeValidateShortcutDimCode(Rec, xRec, FieldNumber, ShortcutDimCode, IsHandled);
+
         if IsHandled then
             exit;
 
         this.CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
-        //if not this.IsTemporary then begin
-        //    this.CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
-        //    Rec.Modify();
-        //end;
-
-        //this.OnAfterValidateShortcutDimCode(Rec, xRec, FieldNumber, ShortcutDimCode);
     end;
 
     var
-        KNHVehicleSetup: Record "KNHVehicleSetup";
-        NoSeries: Codeunit "No. Series";
+        KNHVehicleSetup: Record KNHVehicleSetup;
         CuDimensionManagement: Codeunit DimensionManagement;
+        NoSeries: Codeunit "No. Series";
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
+    local procedure OnBeforeValidateRegistrationNo(var KNHVehicle: Record KNHVehicle; xKNHVehicle: Record KNHVehicle)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateRegistrationNo(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
+    local procedure OnAfterValidateRegistrationNo(var KNHVehicle: Record KNHVehicle; xKNHVehicle: Record KNHVehicle)
     begin
     end;
 

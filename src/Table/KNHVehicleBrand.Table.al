@@ -1,12 +1,13 @@
 /// <summary>
 /// Table KNH Vehicle Make (ID 51501)
 /// </summary>
-table 51501 "KNHVehicleBrand"
+table 51501 KNHVehicleBrand
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Make';
     //DataCaptionFields = "Code", Description;
     //LookupPageID = "KNH Vehicle Make";
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -51,12 +52,12 @@ table 51501 "KNHVehicleBrand"
     }
 
     [IntegrationEvent(false, false)]
-    local procedure OnBeforeValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand"; var IsHandled: Boolean)
+    local procedure OnBeforeValidateCountry(var KNHVehicleBrand: Record KNHVehicleBrand; var IsHandled: Boolean)
     begin
     end;
 
     [IntegrationEvent(false, false)]
-    local procedure OnAfterValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand")
+    local procedure OnAfterValidateCountry(var KNHVehicleBrand: Record KNHVehicleBrand)
     begin
     end;
 }

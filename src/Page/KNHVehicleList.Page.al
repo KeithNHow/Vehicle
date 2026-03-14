@@ -5,14 +5,14 @@
 namespace KNHVehicle;
 using Microsoft.Foundation.Attachment;
 
-page 51501 "KNHVehicleList"
+page 51501 KNHVehicleList
 {
     ApplicationArea = All;
     Caption = 'Vehicles';
-    CardPageID = "KNHVehicleCard";
+    CardPageId = KNHVehicleCard;
     PageType = List;
     Editable = false;
-    SourceTable = "KNHVehicle";
+    SourceTable = KNHVehicle;
     QueryCategory = 'Vehicle Category';
     UsageCategory = Lists;
     PromotedActionCategories = 'New,Process,Report,Navigate';
@@ -21,7 +21,7 @@ page 51501 "KNHVehicleList"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(control1)
             {
@@ -49,7 +49,7 @@ page 51501 "KNHVehicleList"
                 }
             }
         }
-        area(factboxes)
+        area(FactBoxes)
         {
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
@@ -69,7 +69,7 @@ page 51501 "KNHVehicleList"
     }
     actions
     {
-        area(navigation)
+        area(Navigation)
         {
             action(Journey)
             {
@@ -80,10 +80,10 @@ page 51501 "KNHVehicleList"
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = page "KNHVehicleJourneys";
+                RunObject = page KNHVehicleJourneys;
                 RunPageLink = "Vehicle No." = field("No.");
                 RunPageView = sorting("Vehicle No.") order(descending);
-                ShortCutKey = 'Ctrl+F7';
+                ShortcutKey = 'Ctrl+F7';
                 ToolTip = 'View the history of transactions that have been posted for the selected record.';
             }
         }

@@ -9,6 +9,7 @@ page 51508 KNHVehicleMaintenanceRC
 {
     Caption = 'Vehicle Maintenance RC';
     PageType = RoleCenter;
+    ApplicationArea = All;
 
     layout
     {

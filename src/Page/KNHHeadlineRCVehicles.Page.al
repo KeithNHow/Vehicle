@@ -1,15 +1,16 @@
 /// <summary>
 /// Page KNH Headline RC Vehicles (ID 51509).
 /// </summary>
-page 51509 "KNHHeadlineRCVehicles"
+page 51509 KNHHeadlineRCVehicles
 {
     Caption = 'Headline';
     PageType = HeadlinePart;
     RefreshOnActivate = true;
+    ApplicationArea = All;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(Control1)
             {
@@ -20,6 +21,7 @@ page 51509 "KNHHeadlineRCVehicles"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Greeting headline';
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Greeting headline field.';
                 }
             }
             group(Control2)
@@ -32,10 +34,11 @@ page 51509 "KNHHeadlineRCVehicles"
                     Caption = 'Documentation headline';
                     DrillDown = true;
                     Editable = false;
+                    ToolTip = 'Specifies the value of the Documentation headline field.';
 
                     trigger OnDrillDown()
                     begin
-                        HyperLink(this.RCHeadlinesPageCommon.DocumentationUrlTxt());
+                        Hyperlink(this.RCHeadlinesPageCommon.DocumentationUrlTxt());
                     end;
                 }
             }
@@ -51,6 +54,6 @@ page 51509 "KNHHeadlineRCVehicles"
 
     var
         RCHeadlinesPageCommon: Codeunit "RC Headlines Page Common";
-        UserGreetingVisible: Boolean;
         DefaultFieldsVisible: Boolean;
+        UserGreetingVisible: Boolean;
 }

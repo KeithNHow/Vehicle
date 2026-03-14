@@ -15,7 +15,7 @@ page 51511 KNHVehicleBrandAPI
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(General)
             {

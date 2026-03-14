@@ -1,17 +1,17 @@
 /// <summary>
 /// Page KNH Vehicle Model (ID 51507)
 /// </summary>
-page 51507 "KNHVehicleModel"
+page 51507 KNHVehicleModel
 {
     ApplicationArea = All;
     Caption = 'Vehicle Model';
     PageType = List;
-    SourceTable = "KNHVehicleModel";
+    SourceTable = KNHVehicleModel;
     UsageCategory = Administration;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Group)
             {

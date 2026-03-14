@@ -1,13 +1,14 @@
 /// <summary>
 /// Table KNH Vehicle Journey (ID 51503).
 /// </summary>
-table 51503 "KNHVehicleJourney"
+table 51503 KNHVehicleJourney
 {
     Caption = 'Vehicle Journey';
     DataClassification = CustomerContent;
     DataCaptionFields = "Vehicle No.", Description;
-    LookupPageID = "KNHVehicleJourneys";
-    DrillDownPageId = "KNHVehicleJourneys";
+    LookupPageId = KNHVehicleJourneys;
+    DrillDownPageId = KNHVehicleJourneys;
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {

@@ -1,11 +1,12 @@
 /// <summary>
 /// Table KNH Vehicle Journal Line (ID 51507).
 /// </summary>
-table 51507 "KNHVehicleJournalLine"
+table 51507 KNHVehicleJournalLine
 {
     Caption = 'Vehicle Journal Line';
-    DrillDownPageID = "Item Journal Lines";
-    LookupPageID = "Item Journal Lines";
+    DrillDownPageId = "Item Journal Lines";
+    LookupPageId = "Item Journal Lines";
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -21,7 +22,7 @@ table 51507 "KNHVehicleJournalLine"
         field(3; "Vehicle No."; Code[20])
         {
             Caption = 'Vehicle No.';
-            TableRelation = "KNHVehicle";
+            TableRelation = KNHVehicle;
 
             trigger OnValidate()
             begin
@@ -188,7 +189,7 @@ table 51507 "KNHVehicleJournalLine"
         }
         field(73; "Source Currency Code"; Code[10])
         {
-            AccessByPermission = TableData "Drop Shpt. Post. Buffer" = R;
+            AccessByPermission = tabledata "Drop Shpt. Post. Buffer" = R;
             Caption = 'Source Currency Code';
             Editable = false;
             TableRelation = Currency;
@@ -199,7 +200,7 @@ table 51507 "KNHVehicleJournalLine"
         key(Key1; "Journal Template Name", "Journal Batch Name", "Line No.")
         {
             Clustered = true;
-            MaintainSIFTIndex = false;
+            MaintainSiftIndex = false;
         }
     }
     fieldgroups

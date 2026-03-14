@@ -1,7 +1,7 @@
 /// <summary>
 /// XmlPort "KNH Vehicle Journal Line" (ID 51500).
 /// </summary>
-xmlport 51500 "KNHVehicleJnlLineExp"
+xmlport 51500 KNHVehicleJnlLineExp
 {
     Caption = 'Vehicle Journal Line';
 
@@ -125,7 +125,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
     {
         layout
         {
-            area(content)
+            area(Content)
             {
                 group(Options)
                 {
@@ -142,7 +142,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
 
         actions
         {
-            area(processing)
+            area(Processing)
             {
             }
         }
@@ -159,7 +159,7 @@ xmlport 51500 "KNHVehicleJnlLineExp"
 
     trigger OnPreXmlPort()
     var
-        KNHVehicleJournalLine: Record "KNHVehicleJournalLine";
+        KNHVehicleJournalLine: Record KNHVehicleJournalLine;
     begin
         KNHVehicleJournalLine.SetRange("Journal Template Name", 'Default');
         KNHVehicleJournalLine.SetRange("Journal Batch Name", 'Default');

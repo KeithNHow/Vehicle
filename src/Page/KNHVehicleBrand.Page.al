@@ -1,7 +1,7 @@
 /// <summary>
 /// Page KNH Vehicle Brand (ID 51506)
 /// </summary>
-page 51506 "KNHVehicleBrand"
+page 51506 KNHVehicleBrand
 {
     ApplicationArea = All;
     Caption = 'Vehicle Brand';
@@ -11,14 +11,14 @@ page 51506 "KNHVehicleBrand"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(Group)
             {
                 field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
-                    Tooltip = 'Specifies the vehicle make code.';
+                    ToolTip = 'Specifies the vehicle make code.';
                 }
                 field(Name; Rec.Name)
                 {

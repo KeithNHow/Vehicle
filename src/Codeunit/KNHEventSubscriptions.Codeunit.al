@@ -11,7 +11,7 @@
 /// 4a. DATABASE Trigger events are automatically raised by the system when it performs database operations on a table object, such as deleting, inserting, modifying and renaming a record, as defined in a table. Examples - OnAfterInsertEvent, OnAfterDeleteEvent, OnAfterModifyEvent, OnAfterValidateEvent, OnAfterRenameEvent - OnBeforeInsertEvent, OnBeforeDeleteEvent, OnBeforeModifyEvent, OnBeforeValidateEvent, OnBeforeRenameEvent.
 /// 4b. PAGE Trigger events - OnAfterActionEvent, OnAfterActivateFields, OnAfterGetCurrRecordEvent, OnAfterGetRecordEvent, OnAfterOpenPage, OnAfterValidateEvent, OnBeforeActionEvent, OnBeforeValidateEvent.
 /// </summary>
-codeunit 51500 "KNHEventSubscriptions"
+codeunit 51500 KNHEventSubscriptions
 {
     //Set the event subscribers to bind automatically to the event
     //Default = StaticAutomatic
@@ -49,7 +49,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in Customer table
     // Event = OnAfterValidateCity
     // DisplayCityMessage procedure contains two parameters - Cust and xCust
-    [Eventsubscriber(ObjectType::Table, Database::Customer, 'OnAfterValidateCity', '', true, true)]
+    [EventSubscriber(ObjectType::Table, Database::Customer, 'OnAfterValidateCity', '', true, true)]
     local procedure DisplayCityMessage(var Customer: Record Customer; xCustomer: Record Customer)
     begin
         Message('I am Here!');
@@ -58,7 +58,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Database trigger 
     // No event or event publisher. Event is tied to OnValidate trigger of Name field  
     // DisplayCustNameMessage procedure contains no parameters  
-    [Eventsubscriber(ObjectType::Table, Database::Customer, 'OnAfterValidateEvent', 'Name', true, true)]
+    [EventSubscriber(ObjectType::Table, Database::Customer, 'OnAfterValidateEvent', 'Name', true, true)]
     local procedure DisplayCustNameMessage()
     begin
         Message('I am Here!');
@@ -67,8 +67,8 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHVehicleBrand table
     // Event = OnBeforeValidateCountry
     // DisplayBeforeValidateCountry procedure contains two parameters - KNHVehicleMake and IsHandled
-    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleBrand", 'OnBeforeValidateCountry', '', true, true)]
-    local procedure DisplayBeforeValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand"; var IsHandled: Boolean)
+    [EventSubscriber(ObjectType::Table, Database::KNHVehicleBrand, 'OnBeforeValidateCountry', '', true, true)]
+    local procedure DisplayBeforeValidateCountry(var KNHVehicleBrand: Record KNHVehicleBrand; var IsHandled: Boolean)
     begin
         IsHandled := true;
         Message('Some sort of task is carried out here.');
@@ -77,8 +77,8 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHVehicleBrand table
     // Event = OnAfterValidateCountry
     // DisplayAfterValidateCountry procedure contains one parameter - KNHVehicleMake
-    [EventSubscriber(ObjectType::Table, Database::"KNHVehicleBrand", 'OnAfterValidateCountry', '', true, true)]
-    local procedure DisplayAfterValidateCountry(var KNHVehicleBrand: Record "KNHVehicleBrand")
+    [EventSubscriber(ObjectType::Table, Database::KNHVehicleBrand, 'OnAfterValidateCountry', '', true, true)]
+    local procedure DisplayAfterValidateCountry(var KNHVehicleBrand: Record KNHVehicleBrand)
     begin
         Message('Validate which continent country belongs to.');
     end;
@@ -86,7 +86,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in Cust Card page
     // Event = OnAfterOnOpenPage
     // DisplayOnOpenPageMessage procedure contains two parameters - Cust and xCust  
-    [Eventsubscriber(ObjectType::Page, Page::"Customer Card", 'OnAfterOnOpenPage', '', true, true)]
+    [EventSubscriber(ObjectType::Page, Page::"Customer Card", 'OnAfterOnOpenPage', '', true, true)]
     local procedure DisplayOnOpenPageMessage(var Customer: Record Customer; xCustomer: Record Customer)
     begin
         Message('I am Here!');
@@ -95,7 +95,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Page trigger 
     // No event or event publisher. Event is tied to OnValidate trigger of Name field  
     // DisplayNameMessage procedure contains no parameters  
-    [Eventsubscriber(ObjectType::Page, Page::"Customer Card", 'OnAfterValidateEvent', 'Name', true, true)]
+    [EventSubscriber(ObjectType::Page, Page::"Customer Card", 'OnAfterValidateEvent', 'Name', true, true)]
     local procedure DisplayNameMessage()
     begin
         Message('I am Here!');
@@ -104,7 +104,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in DimMgmt codeunit
     // Event = OnBeforeEditDimensionSet
     // DisplayEditDimSetMessage procedure contains four parameters - DimSetID, NewCaption, NewDimSetID and IsHandled  
-    [Eventsubscriber(ObjectType::Codeunit, Codeunit::DimensionManagement, 'OnBeforeEditDimensionSet', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::DimensionManagement, 'OnBeforeEditDimensionSet', '', true, true)]
     local procedure DisplayEditDimSetMessage(DimSetID: Integer; NewCaption: Text[250]; var NewDimSetID: Integer; var IsHandled: Boolean)
     begin
         Message('I am Here!');
@@ -114,7 +114,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in DimMgmt codeunit
     // Event = OnAfterDeleteDefaultdim 
     // DisplayDeleteDefDimMessage procedure contains two parameters - table ID and No.  
-    [Eventsubscriber(ObjectType::Codeunit, Codeunit::DimensionManagement, 'OnAfterDeleteDefaultDim', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::DimensionManagement, 'OnAfterDeleteDefaultDim', '', true, true)]
     local procedure DisplayDeleteDefDimMessage(TableID: Integer; No: Code[20])
     begin
         Message('I am Here!');
@@ -135,7 +135,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Event = MyReportEvent
     // DisplayRMessage procedure contains one parameter - IsHandled
     // Subs Parameters: ObjectType, ObjName, EventName, EventElement, SkipOnMissLic, SkipOnMissPerm
-    [Eventsubscriber(ObjectType::Report, Report::KNHVehicleJourney, 'MyReportEvent', '', true, true)]
+    [EventSubscriber(ObjectType::Report, Report::KNHVehicleJourney, 'MyReportEvent', '', true, true)]
     local procedure HandleMyReportEvent(var IsHandled: Boolean)
     begin
         IsHandled := true;
@@ -154,7 +154,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHEventPublications codeunit
     // Event = OnAddressLineChanged
     // DisplayXMLEventMessage procedure contains no parameters
-    [EventSubscriber(ObjectType::XmlPort, XMLPort::"KNHVehicleJnlLineExp", 'MyXmlPortEvent', '', true, true)]
+    [EventSubscriber(ObjectType::XmlPort, Xmlport::KNHVehicleJnlLineExp, 'MyXmlPortEvent', '', true, true)]
     local procedure MessageMyXmlPortEvent()
     begin
         Message('I am Here!');

@@ -1,11 +1,12 @@
 /// <summary>
 /// Table Vehicle Journal Template (ID 51505).
 /// </summary>
-table 51505 "KNHVehicleJournalTemplate"
+table 51505 KNHVehicleJournalTemplate
 {
     Caption = 'Vehicle Journal Template';
     //LookupPageID = "KNH Journal Template List";
     ReplicateData = true;
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -116,7 +117,7 @@ table 51505 "KNHVehicleJournalTemplate"
     end;
 
     var
-        KNHVehicleJournalBatch: Record "KNHVehicleJournalBatch";
-        KNHVehicleJournalLine: Record "KNHVehicleJournalLine";
+        KNHVehicleJournalBatch: Record KNHVehicleJournalBatch;
+        KNHVehicleJournalLine: Record KNHVehicleJournalLine;
         PostTxt: Label 'must not be %1', Comment = '%1 = Posting no. Series';
 }

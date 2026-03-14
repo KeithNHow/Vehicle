@@ -1,18 +1,18 @@
 /// <summary>
 /// Page KNH Vehicle Journeys (ID 51502).
 /// </summary>
-page 51502 "KNHVehicleJourneys"
+page 51502 KNHVehicleJourneys
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journeys';
     PageType = List;
-    SourceTable = "KNHVehicleJourney";
+    SourceTable = KNHVehicleJourney;
     UsageCategory = Lists;
     Editable = false;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(General)
             {
@@ -81,7 +81,7 @@ page 51502 "KNHVehicleJourneys"
     }
     actions
     {
-        area(navigation)
+        area(Navigation)
         {
             action(JnlLineExp)
             {
@@ -93,7 +93,7 @@ page 51502 "KNHVehicleJourneys"
                 PromotedIsBig = true;
                 PromotedOnly = true;
                 ToolTip = 'XML file export of Vehicle Journal Line.';
-                ShortCutKey = 'Ctrl+F6';
+                ShortcutKey = 'Ctrl+F6';
                 trigger OnAction();
                 begin
                     Xmlport.Run(Xmlport::KNHVehicleJnlLineImp, true, false, Rec);

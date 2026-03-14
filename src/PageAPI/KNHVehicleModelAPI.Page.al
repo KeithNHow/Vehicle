@@ -15,7 +15,7 @@ page 51512 KNHVehicleModelAPI
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(General)
             {

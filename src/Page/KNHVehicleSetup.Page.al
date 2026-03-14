@@ -1,7 +1,7 @@
 /// <summary>
 /// Page KNH Vehicle Setup (ID 51503).
 /// </summary>
-page 51503 "KNHVehicleSetup"
+page 51503 KNHVehicleSetup
 {
     ApplicationArea = All;
     UsageCategory = Administration;
@@ -9,11 +9,11 @@ page 51503 "KNHVehicleSetup"
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = Card;
-    SourceTable = "KNHVehicleSetup";
+    SourceTable = KNHVehicleSetup;
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(General)
             {
@@ -33,7 +33,7 @@ page 51503 "KNHVehicleSetup"
             }
         }
 
-        area(factboxes)
+        area(FactBoxes)
         {
             systempart(Control1900383207; Links)
             {

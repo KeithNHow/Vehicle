@@ -1,17 +1,17 @@
 /// <summary>
 /// Report KNH Vehicle Journey(ID 51500).
 /// </summary>
-report 51500 "KNHVehicleJourney"
+report 51500 KNHVehicleJourney
 {
     ApplicationArea = All;
     Caption = 'Vehicle Journey';
     UsageCategory = ReportsAndAnalysis;
-    defaultlayout = rdlc;
+    DefaultLayout = RDLC;
     RDLCLayout = '.\src\Report\rdlc\KNHVehicleJourney.rdlc';
 
     dataset
     {
-        dataitem(KNHVehicleJourney; "KNHVehicleJourney")
+        dataitem(KNHVehicleJourney; KNHVehicleJourney)
         {
             column(VehicleNo; "Vehicle No.")
             {
@@ -43,7 +43,7 @@ report 51500 "KNHVehicleJourney"
     {
         layout
         {
-            area(content)
+            area(Content)
             {
                 group(GroupName)
                 {
@@ -52,7 +52,7 @@ report 51500 "KNHVehicleJourney"
         }
         actions
         {
-            area(processing)
+            area(Processing)
             {
             }
         }

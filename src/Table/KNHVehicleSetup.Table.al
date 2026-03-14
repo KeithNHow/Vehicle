@@ -1,12 +1,13 @@
 /// <summary>
 /// Table KNH Vehicle Setup (ID 51504).
 /// </summary>
-table 51504 "KNHVehicleSetup"
+table 51504 KNHVehicleSetup
 {
     Caption = 'Vehicle Setup';
     DataClassification = CustomerContent;
-    DrillDownPageID = "Sales & Receivables Setup";
-    LookupPageID = "Sales & Receivables Setup";
+    DrillDownPageId = "Sales & Receivables Setup";
+    LookupPageId = "Sales & Receivables Setup";
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {

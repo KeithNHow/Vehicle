@@ -1,11 +1,12 @@
 /// <summary>
 /// Table KNH Vehicle Journal Batch (ID 51506).
 /// </summary>
-table 51506 "KNHVehicleJournalBatch"
+table 51506 KNHVehicleJournalBatch
 {
     Caption = 'Vehicle Journal Batch';
     DataCaptionFields = Name, Description;
     //LookupPageID = "Vehicle Journal Batches";
+    AllowInCustomizations = AsReadWrite;
 
     fields
     {
@@ -13,7 +14,7 @@ table 51506 "KNHVehicleJournalBatch"
         {
             Caption = 'Journal Template Name';
             NotBlank = true;
-            TableRelation = "KNHVehicleJournalTemplate";
+            TableRelation = KNHVehicleJournalTemplate;
         }
         field(2; Name; Code[10])
         {
@@ -115,10 +116,10 @@ table 51506 "KNHVehicleJournalBatch"
     end;
 
     var
-        ItemJournalTemplate: Record "Item Journal Template";
         ItemJournalLine: Record "Item Journal Line";
-        RecurringJnlTxt: Label 'Only the %1 field can be filled in on recurring journals.', Comment = '%1 = Posting No. Series';
+        ItemJournalTemplate: Record "Item Journal Template";
         PostingNoTxt: Label 'must not be %1', Comment = '%1 = Posting No. series';
+        RecurringJnlTxt: Label 'Only the %1 field can be filled in on recurring journals.', Comment = '%1 = Posting No. Series';
 
     /// <summary>
     /// SetupNewBatch.

@@ -4,13 +4,13 @@
 namespace KNHVehicle;
 using Microsoft.Foundation.Attachment;
 
-page 51500 "KNHVehicleCard"
+page 51500 KNHVehicleCard
 {
     ApplicationArea = All;
     UsageCategory = Documents;
     Caption = 'Vehicle';
     PageType = Card;
-    SourceTable = "KNHVehicle";
+    SourceTable = KNHVehicle;
     RefreshOnActivate = true;
     PromotedActionCategories = 'New,Process,Report,Navigate';
     AboutTitle = 'About vehicle details';
@@ -18,7 +18,7 @@ page 51500 "KNHVehicleCard"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(general)
             {
@@ -92,7 +92,7 @@ page 51500 "KNHVehicleCard"
                 }
             }
         }
-        area(factboxes)
+        area(FactBoxes)
         {
             part("Attached Documents"; "Doc. Attachment List Factbox")
             {
@@ -112,7 +112,7 @@ page 51500 "KNHVehicleCard"
     }
     actions
     {
-        area(navigation)
+        area(Navigation)
         {
             action(Journeys)
             {
@@ -123,10 +123,10 @@ page 51500 "KNHVehicleCard"
                 PromotedCategory = Category4;
                 PromotedIsBig = true;
                 PromotedOnly = true;
-                RunObject = page "KNHVehicleJourneys";
+                RunObject = page KNHVehicleJourneys;
                 RunPageLink = "Vehicle No." = field("No.");
-                RunPageView = sorting("Vehicle No.") order(Descending);
-                ShortCutKey = 'Ctrl+F7';
+                RunPageView = sorting("Vehicle No.") order(descending);
+                ShortcutKey = 'Ctrl+F7';
                 ToolTip = 'View the history of transactions that have been posted for the selected record.';
             }
         }
@@ -141,10 +141,10 @@ page 51500 "KNHVehicleCard"
                     Image = Report;
                     ToolTip = 'Vehicle Balances';
                     Promoted = true;
-                    Promotedonly = true;
+                    PromotedOnly = true;
                     PromotedCategory = Report;
                     PromotedIsBig = true;
-                    RunObject = Page "KNHVehicleBalances";
+                    RunObject = page KNHVehicleBalances;
                 }
             }
         }

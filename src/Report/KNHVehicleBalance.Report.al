@@ -1,17 +1,17 @@
 /// <summary>
 /// Report KNH Vehicle Balance (ID 51501).
 /// </summary>
-report 51501 "KNHVehicleBalance"
+report 51501 KNHVehicleBalance
 {
     ApplicationArea = All;
     Caption = 'Balance Report';
     UsageCategory = ReportsAndAnalysis;
-    defaultlayout = rdlc;
+    DefaultLayout = RDLC;
     RDLCLayout = '.\src\Report\rdlc\KNHVehicleBalance.rdlc';
 
     dataset
     {
-        dataitem(Vehicle; "KNHVehicle")
+        dataitem(Vehicle; KNHVehicle)
         {
             column(No_; "No.")
             {
@@ -37,7 +37,7 @@ report 51501 "KNHVehicleBalance"
     {
         layout
         {
-            area(content)
+            area(Content)
             {
                 group(Options)
                 {
