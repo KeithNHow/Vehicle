@@ -1,6 +1,10 @@
 /// <summary>
-/// Page KNH Vehicle List (ID 51501).
+/// This page displays a list of vehicles. From here you can navigate to the vehicle card, which displays detailed information about the vehicle, as well as a list of journeys associated with the vehicle.
 /// </summary>
+
+namespace KNHVehicle;
+using Microsoft.Foundation.Attachment;
+
 page 51501 "KNHVehicleList"
 {
     ApplicationArea = All;
@@ -47,7 +51,7 @@ page 51501 "KNHVehicleList"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

@@ -1,6 +1,9 @@
 /// <summary>
 /// Page KNH Vehicle Card (ID 51500).
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.Attachment;
+
 page 51500 "KNHVehicleCard"
 {
     ApplicationArea = All;
@@ -91,7 +94,7 @@ page 51500 "KNHVehicleCard"
         }
         area(factboxes)
         {
-            part("Attached Documents"; "Document Attachment Factbox")
+            part("Attached Documents"; "Doc. Attachment List Factbox")
             {
                 ApplicationArea = All;
                 Caption = 'Attachments';

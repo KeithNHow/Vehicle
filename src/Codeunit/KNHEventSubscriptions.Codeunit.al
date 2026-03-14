@@ -20,7 +20,7 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHVehicle table
     // Event = OnAfterOnInsert 
     // DisplayOnInsertMessage procedure contains two parameters - KNHVehicle and xKNHVehicle
-    [Eventsubscriber(ObjectType::Table, Database::"KNHVehicle", 'OnAfterOnInsert', '', true, true)]
+    /*[Eventsubscriber(ObjectType::Table, Database::"KNHVehicle", 'OnAfterOnInsert', '', true, true)]
     local procedure DisplayOnInsertMessage(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
     begin
         Message('You have found me!');
@@ -34,6 +34,7 @@ codeunit 51500 "KNHEventSubscriptions"
     begin
         Message('You have found me!');
     end;
+    
 
     // Database trigger 
     // No event or event publisher. Event is tied to OnValidate trigger of Reg Date field  
@@ -43,6 +44,7 @@ codeunit 51500 "KNHEventSubscriptions"
     begin
         Message('You have found me!');
     end;
+    */
 
     // Integration Event found in Customer table
     // Event = OnAfterValidateCity
@@ -121,11 +123,13 @@ codeunit 51500 "KNHEventSubscriptions"
     // Integration Event found in KNHVehicle query
     // Event = MyQueryEvent
     // DisplayQMessage procedure contains no parameters
+    /*
     [EventSubscriber(ObjectType::Query, Query::"KNHVehicle", 'MyQueryEvent', '', true, true)]
     local procedure DisplayQMessage()
     begin
         Message('I am Here!');
     end;
+    */
 
     // Integration Event found in KNHVehicleJourney report
     // Event = MyReportEvent
