@@ -245,8 +245,8 @@ table 51500 "KNHVehicle"
 
         this.CuDimensionManagement.ValidateDimValueCode(FieldNumber, ShortcutDimCode);
         //if not this.IsTemporary then begin
-        //this.CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
-        //Rec.Modify();
+        //    this.CuDimensionManagement.SaveDefaultDim(Database::"KNHVehicle", "No.", FieldNumber, ShortcutDimCode);
+        //    Rec.Modify();
         //end;
 
         //this.OnAfterValidateShortcutDimCode(Rec, xRec, FieldNumber, ShortcutDimCode);
