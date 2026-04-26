@@ -32,7 +32,8 @@
         "SortTableFields",
         "AddMissingParentheses",
         "RemoveBeginEnd",
-        "RemoveUnusedVariables"
+        "RemoveUnusedVariables",
+        "SortUsings"
     ],
 
     "workbench.editor.enablePreview": true,
