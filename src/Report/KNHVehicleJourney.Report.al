@@ -1,6 +1,8 @@
 /// <summary>
 /// Report KNH Vehicle Journey(ID 51500).
 /// </summary>
+namespace KNHVehicle;
+
 report 51500 KNHVehicleJourney
 {
     ApplicationArea = All;

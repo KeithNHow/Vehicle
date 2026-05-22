@@ -11,6 +11,10 @@
 /// 4a. DATABASE Trigger events are automatically raised by the system when it performs database operations on a table object, such as deleting, inserting, modifying and renaming a record, as defined in a table. Examples - OnAfterInsertEvent, OnAfterDeleteEvent, OnAfterModifyEvent, OnAfterValidateEvent, OnAfterRenameEvent - OnBeforeInsertEvent, OnBeforeDeleteEvent, OnBeforeModifyEvent, OnBeforeValidateEvent, OnBeforeRenameEvent.
 /// 4b. PAGE Trigger events - OnAfterActionEvent, OnAfterActivateFields, OnAfterGetCurrRecordEvent, OnAfterGetRecordEvent, OnAfterOpenPage, OnAfterValidateEvent, OnBeforeActionEvent, OnBeforeValidateEvent.
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Finance.Dimension;
+using Microsoft.Sales.Customer;
+
 codeunit 51500 KNHEventSubscriptions
 {
     //Set the event subscribers to bind automatically to the event
@@ -20,7 +24,8 @@ codeunit 51500 KNHEventSubscriptions
     // Integration Event found in KNHVehicle table
     // Event = OnAfterOnInsert 
     // DisplayOnInsertMessage procedure contains two parameters - KNHVehicle and xKNHVehicle
-    /*[Eventsubscriber(ObjectType::Table, Database::"KNHVehicle", 'OnAfterOnInsert', '', true, true)]
+    /*
+    [Eventsubscriber(ObjectType::Table, Database::"KNHVehicle", 'OnAfterOnInsert', '', true, true)]
     local procedure DisplayOnInsertMessage(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
     begin
         Message('You have found me!');
@@ -34,7 +39,7 @@ codeunit 51500 KNHEventSubscriptions
     begin
         Message('You have found me!');
     end;
-    
+
 
     // Database trigger 
     // No event or event publisher. Event is tied to OnValidate trigger of Reg Date field  
@@ -44,7 +49,7 @@ codeunit 51500 KNHEventSubscriptions
     begin
         Message('You have found me!');
     end;
-    */
+*/
 
     // Integration Event found in Customer table
     // Event = OnAfterValidateCity

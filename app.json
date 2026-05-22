@@ -2,7 +2,7 @@
   "id": "29f7dc76-12f4-4c00-843e-3d1be79676cb",
   "name": "Vehicle",
   "publisher": "KeithHow",
-  "version": "27.0.0.0",
+  "version": "28.0.0.0",
   "brief": "Business Central Development Testing.",
   "description": "Business Central Development Testing.",
   "privacyStatement": "",
@@ -12,8 +12,8 @@
   "logo": "./logo/KNH.jpg",
   "dependencies": [],
   "screenshots": [],
-  "platform": "27.0.0.0",
-  "application": "27.0.0.0",
+  "platform": "28.0.0.0",
+  "application": "28.0.0.0",
   "idRanges": [
     {
       "from": 51500,
@@ -25,5 +25,5 @@
     "allowDownloadingSource": false,
     "includeSourceInSymbolFile": false
   },
-  "runtime": "16.0"
+  "runtime": "17.0"
 }

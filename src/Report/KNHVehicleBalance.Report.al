@@ -1,6 +1,9 @@
 /// <summary>
 /// Report KNH Vehicle Balance (ID 51501).
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.Company;
+
 report 51501 KNHVehicleBalance
 {
     ApplicationArea = All;

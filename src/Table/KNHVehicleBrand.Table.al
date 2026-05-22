@@ -1,12 +1,15 @@
 /// <summary>
 /// Table KNH Vehicle Make (ID 51501)
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.Address;
+
 table 51501 KNHVehicleBrand
 {
     DataClassification = CustomerContent;
     Caption = 'Vehicle Make';
-    //DataCaptionFields = "Code", Description;
-    //LookupPageID = "KNH Vehicle Make";
+    DataCaptionFields = "Code", Description;
+    LookupPageID = "KNHVehicleBrand";
     AllowInCustomizations = AsReadWrite;
 
     fields
