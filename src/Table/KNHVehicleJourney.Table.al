@@ -1,6 +1,8 @@
 /// <summary>
 /// Table KNH Vehicle Journey (ID 51503).
 /// </summary>
+namespace KNHVehicle;
+
 table 51503 KNHVehicleJourney
 {
     Caption = 'Vehicle Journey';

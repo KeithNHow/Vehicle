@@ -1,6 +1,8 @@
 /// <summary>
 /// XmlPort "KNH Vehicle Journal Line" (ID 51500).
 /// </summary>
+namespace KNHVehicle;
+
 xmlport 51500 KNHVehicleJnlLineExp
 {
     Caption = 'Vehicle Journal Line';

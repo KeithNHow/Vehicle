@@ -1,6 +1,8 @@
 /// <summary>
 /// Table KNH Vehicle Cue (ID 51508).
 /// </summary>
+namespace KNHVehicle;
+
 table 51508 KNHVehicleCue
 {
     Caption = 'Vehicle Cue';

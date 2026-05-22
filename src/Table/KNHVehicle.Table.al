@@ -1,6 +1,10 @@
 /// <summary>
 /// This table contains information about vehicles.
 /// </summary>
+namespace KNHVehicle;
+Using Microsoft.Finance.Dimension;
+using Microsoft.Foundation.NoSeries;
+
 table 51500 KNHVehicle
 {
     Caption = 'Vehicle';
@@ -75,7 +79,7 @@ table 51500 KNHVehicle
         }
         field(10; "Fuel Type"; Enum KNHVehicleFuelType)
         {
-            Caption = 'Engine Plate No.';
+            Caption = 'Fuel Type';
             DataClassification = CustomerContent;
         }
         field(11; "New Cost"; Decimal)

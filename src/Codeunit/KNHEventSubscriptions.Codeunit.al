@@ -24,7 +24,7 @@ codeunit 51500 KNHEventSubscriptions
     // Integration Event found in KNHVehicle table
     // Event = OnAfterOnInsert 
     // DisplayOnInsertMessage procedure contains two parameters - KNHVehicle and xKNHVehicle
-    /*
+
     [Eventsubscriber(ObjectType::Table, Database::"KNHVehicle", 'OnAfterOnInsert', '', true, true)]
     local procedure DisplayOnInsertMessage(var KNHVehicle: Record "KNHVehicle"; xKNHVehicle: Record "KNHVehicle")
     begin
@@ -49,7 +49,6 @@ codeunit 51500 KNHEventSubscriptions
     begin
         Message('You have found me!');
     end;
-*/
 
     // Integration Event found in Customer table
     // Event = OnAfterValidateCity

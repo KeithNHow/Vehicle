@@ -1,6 +1,11 @@
 /// <summary>
 /// Table KNH Vehicle Journal Batch (ID 51506).
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.AuditCodes;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Inventory.Journal;
+
 table 51506 KNHVehicleJournalBatch
 {
     Caption = 'Vehicle Journal Batch';

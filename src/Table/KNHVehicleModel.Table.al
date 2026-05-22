@@ -1,6 +1,8 @@
 /// <summary>
 /// Table KNH Vehicle Model (ID 51502)
 /// </summary>
+namespace KNHVehicle;
+
 table 51502 KNHVehicleModel
 {
     DataClassification = CustomerContent;

@@ -1,6 +1,10 @@
 /// <summary>
 /// Table KNH Vehicle Setup (ID 51504).
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Sales.Setup;
+
 table 51504 KNHVehicleSetup
 {
     Caption = 'Vehicle Setup';

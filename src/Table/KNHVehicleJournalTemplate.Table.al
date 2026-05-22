@@ -1,6 +1,11 @@
 /// <summary>
 /// Table Vehicle Journal Template (ID 51505).
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Foundation.AuditCodes;
+using Microsoft.Foundation.NoSeries;
+using System.Reflection;
+
 table 51505 KNHVehicleJournalTemplate
 {
     Caption = 'Vehicle Journal Template';

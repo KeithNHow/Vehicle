@@ -1,6 +1,22 @@
 /// <summary>
 /// Table KNH Vehicle Journal Line (ID 51507).
 /// </summary>
+namespace KNHVehicle;
+
+using Microsoft.Finance.Currency;
+using Microsoft.Finance.Dimension;
+using Microsoft.Finance.GeneralLedger.Setup;
+using Microsoft.Foundation.Address;
+using Microsoft.Foundation.AuditCodes;
+using Microsoft.Foundation.Enums;
+using Microsoft.Foundation.NoSeries;
+using Microsoft.Inventory.Item;
+using Microsoft.Inventory.Journal;
+using Microsoft.Inventory.Ledger;
+using Microsoft.Purchases.Vendor;
+using Microsoft.Sales.Customer;
+using Microsoft.Sales.Document;
+
 table 51507 KNHVehicleJournalLine
 {
     Caption = 'Vehicle Journal Line';
