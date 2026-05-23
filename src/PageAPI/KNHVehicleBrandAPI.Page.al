@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Brand API (ID 51511).
 /// </summary>
+namespace KNHVehicle;
+
 page 51511 KNHVehicleBrandAPI
 {
     APIGroup = 'apiVehicle';

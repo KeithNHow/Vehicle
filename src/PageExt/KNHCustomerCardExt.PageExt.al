@@ -1,6 +1,9 @@
 /// <summary>
 /// PageExtension "KNHCustomerExt" (ID 51500) extends Record Customer.
 /// </summary>
+namespace KNHVehicle;
+using Microsoft.Sales.Customer;
+
 pageextension 51500 KNHCustomerCardExt extends "Customer Card"
 {
     layout

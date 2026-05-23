@@ -1,6 +1,8 @@
 /// <summary>
 /// Query KNH Vehicle Journey Count (ID 51501).
 /// </summary>
+namespace KNHVehicle;
+
 query 51501 KNHVehicleJourneyCount
 {
     Caption = 'Vehicle Journey Count';

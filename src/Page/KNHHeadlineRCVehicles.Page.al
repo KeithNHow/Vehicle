@@ -1,6 +1,9 @@
 /// <summary>
 /// Page KNH Headline RC Vehicles (ID 51509).
 /// </summary>
+namespace KNHVehicle;
+using System.Visualization;
+
 page 51509 KNHHeadlineRCVehicles
 {
     Caption = 'Headline';

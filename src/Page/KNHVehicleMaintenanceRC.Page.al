@@ -4,7 +4,6 @@
 
 namespace KNHVehicle;
 
-
 page 51508 KNHVehicleMaintenanceRC
 {
     Caption = 'Vehicle Maintenance RC';

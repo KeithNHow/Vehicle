@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Activities (ID 51510).
 /// </summary>
+namespace KNHVehicle;
+
 page 51510 KNHVehicleActivities
 {
     Caption = 'Activities';

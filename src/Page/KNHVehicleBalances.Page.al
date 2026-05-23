@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Balances (ID 51505).
 /// </summary>
+namespace KNHVehicle;
+
 page 51505 KNHVehicleBalances
 {
     Caption = 'KNH Vehicle Balances';

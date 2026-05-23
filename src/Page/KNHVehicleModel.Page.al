@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Model (ID 51507)
 /// </summary>
+namespace KNHVehicle;
+
 page 51507 KNHVehicleModel
 {
     ApplicationArea = All;

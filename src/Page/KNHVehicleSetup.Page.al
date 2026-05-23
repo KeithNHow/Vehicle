@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Setup (ID 51503).
 /// </summary>
+namespace KNHVehicle;
+
 page 51503 KNHVehicleSetup
 {
     ApplicationArea = All;

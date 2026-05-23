@@ -1,6 +1,8 @@
 /// <summary>
 /// Query KNH Vehicle Make (ID 51502).
 /// </summary>
+namespace KNHVehicle;
+
 query 51502 KNHVehicleMake
 {
     Caption = 'KNH Vehicle Make';

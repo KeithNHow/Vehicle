@@ -1,6 +1,8 @@
 /// <summary>
 /// PermSet KNH Vehicle (ID 51500).
 /// </summary>
+namespace KNHVehicle;
+
 permissionset 51500 KNHVehicle
 {
     Assignable = true;

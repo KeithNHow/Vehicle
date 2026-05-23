@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Journeys (ID 51502).
 /// </summary>
+namespace KNHVehicle;
+
 page 51502 KNHVehicleJourneys
 {
     ApplicationArea = All;

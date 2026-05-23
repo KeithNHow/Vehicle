@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Brand (ID 51506)
 /// </summary>
+namespace KNHVehicle;
+
 page 51506 KNHVehicleBrand
 {
     ApplicationArea = All;

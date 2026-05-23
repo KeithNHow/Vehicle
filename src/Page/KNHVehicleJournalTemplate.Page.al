@@ -1,6 +1,8 @@
 /// <summary>
 /// Page KNH Vehicle Journal Template (ID 51504).
 /// </summary>
+namespace KNHVehicle;
+
 page 51504 KNHVehicleJournalTemplate
 {
     ApplicationArea = All;
